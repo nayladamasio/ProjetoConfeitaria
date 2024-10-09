@@ -1,0 +1,41 @@
+﻿.box {
+    background-color: white;
+    height: auto;
+    width: 50%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 70px;
+    padding: 20px;
+    font-size: 35px;
+    text-align: left;
+}
+
+input {
+    font-size: 5px;
+
+}
+
+.form-control {
+    font-size: 25px;
+}
+
+.form-group {
+    margin-top: 10px;
+}
+
+.btn {
+    background-color: white;
+    color: #e48f9b;
+    font-size: 40px;
+    margin-top: 12px;
+    width: 50%;
+}
+
+.btn:hover {
+    color: #e48f9b;
+}
+
+.icon, h1 {
+    color: #e48f9b;
+}
+

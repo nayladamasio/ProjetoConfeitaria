@@ -1,0 +1,63 @@
+﻿.box {
+    background-color: white;
+    height: auto;
+    width: 50%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 70px;
+    padding: 20px;
+    font-family: 'Pompiere', serif;
+}
+
+.box1 {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    margin-top: -25px;
+}
+
+.logousuario {
+    width: 190px;
+    margin-bottom: -30px;
+}
+
+.iconeredes {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    color: #e48f9b;
+    font-size: 20px;
+
+}
+
+.links a, p{
+    color: #6c757d;
+    text-decoration:none;
+    font-size: 27px;
+    margin: 0;
+    padding: 0;
+    margin-top: 11px;
+}
+
+form{  
+    width: 100%;
+    margin: 0 auto;
+}
+
+.btn {
+    background-color: #e48f9b;
+    color: white;
+    width: 100px;
+    padding: 3px;
+    margin-top: 0;    
+}
+
+.btn:hover{
+    color: white;
+}
+
+.checkbox{
+    font-size: 25px;
+}
+

@@ -1,0 +1,29 @@
+﻿.linha {
+    border-bottom: 1px solid #acacac;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 20px;
+}
+
+.carousel-inner {
+    width: 100%;
+    height: 100%;
+    padding-left: 200px;
+    padding-right: 200px;
+    background-size: cover;
+    display: flex;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.imgefeito {
+    transition: transform 0.3s ease-in-out;
+}
+
+.imgefeito:hover {
+    transform: scale(1.1);
+}
+
+h1{
+   color: #5e5b5b;
+}

@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> @ViewData["Title"] - Cakes & Desserts</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Confeitaria.App.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pompiere" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+</head>
+<body>
+    <header>
+        @* <div class="d-flex justify-content-center">
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Cakes &Desserts (1).png" class="logo mt-4" alt="ImagemLogo"></a>
+        <i class="bi bi-cart3"></i>
+        </div> *@
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white box-mb-3 shadow-lg cabecalho">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Cakes &Desserts (1).png" class="logo" alt="ImagemLogo"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex" id="navbarNavDarkDropdown">
+                    <ul class="navbar-nav link flex-grow-1 text-uppercase justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <button class="btn-menu dropdown-toggle-split text-uppercase fw-light" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menu
+                            </button>
+                            <div class="dropdown-menu rounded-5 fs-3">
+                                <a class="nav-link text-secondary ms-2" asp-area="" asp-controller="Produtos" asp-action="IndexBolos">
+                                    @*  <img src="~/img/ImagemBolo2.png" class="mb-2 iconemenu" alt="ImagemBolo">*@  Bolos
+                                </a>
+                                <a class="nav-link text-secondary ms-2" asp-area="" asp-controller="Produtos" asp-action="IndexTortas">
+                                    @* <img src="~/img/ImagemTorta.png" class="mb-2 iconemenu" alt="ImagemTorta">*@ Tortas
+                                </a>
+                                <a class="nav-link text-secondary ms-2" asp-area="" asp-controller="Produtos" asp-action="IndexCupCakes">
+                                    @* <img src="~/img/ImagemCupCake.png" class="mb-2 iconemenu" alt="ImagemCupCake">*@ CupCakes
+                                </a>
+                                <a class="nav-link text-secondary ms-2" asp-area="" asp-controller="Produtos" asp-action="Index">Ver Todos </a>
+                            </div>
+                            @*  <li class="nav-item">
+                            <a class="nav-link text-secundary" asp-area="" asp-controller="Home" asp-action="Index">Receitas</a>
+                            </li> *@
+                        <li class="nav-item">
+                            <a class="nav-link text-secundary" asp-area="" asp-controller="Home" asp-action="Sobrenos">Sobre Nós</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secundary" asp-area="" asp-controller="Home" asp-action="FaleConosco">Fale Conosco</a>
+                        </li>
+                    </ul>
+
+                    <div class="btn-group">
+                        <button type="button" class="btn-menu dropdown-toggle text-uppercase fs-3" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                            <i class="fa fa-user-o fs-3" aria-hidden="true"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-lg-end rounded-5 fs-4 text-uppercase">
+                            <li><partial name="_LoginPartial" /></li>
+                        </ul>
+                    </div>
+                    <a asp-controller="Produtos" asp-action="Carrinho" class="bi bi-cart3 i-cart"></a>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="mt-5 conteudo">
+        @RenderBody()
+    </main>
+
+    <footer class="rodape shadow-lg">
+        <div class="row container-fluid rodape">
+            <div class="col-md-3">
+                <h3>INSTITUCIONAL:</h3>
+                <div class="font">
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy" class="institucional mt-2">Política de Privacidade</a>
+                    <a asp-area="" asp-controller="Home" asp-action="Sobrenos" class="institucional">Sobre Nós</a>
+                    <a asp-area="" asp-controller="Home" asp-action="FaleConosco" class="institucional ">Fale Conosco</a>
+                    <a asp-area="" asp-controller="Clientes" asp-action="Index" class="institucional ">Minha Conta</a>
+                    <a asp-area="" asp-controller="Pedidos" asp-action="Index" class="institucional ">Meus Pedidos</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h3>CONTATOS:</h3>
+                <div class="font">
+                    <div class="ms-3">
+                        <p class="gray pb-5">
+                            <i class="bi bi-envelope i-contato"></i> suporte@cakesedesserts.com
+                            <br />
+                            <i class="bi bi-whatsapp i-contato"></i>  +55 (11) 90000-0000
+                            <br />
+                            <i class="bi bi-telephone-fill i-contato"></i>  (11) 0000-0000
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h3 class="ms-4">REDES SOCIAIS:</h3>
+                <div class="font">
+                    <div class="ms-3">
+                        <i class="bi bi-facebook fs-2"></i>
+                        <a class="text-decoration-none gray ms-2" asp-area="" asp-controller="Home" asp-action="Index">
+                            facebook.com/docesedesserts
+                        </a>
+                    </div>
+                    <div>
+                        <i class="bi bi-twitter fs-2"></i>
+                        <a class="text-decoration-none gray ms-2" asp-area="" asp-controller="Home" asp-action="Index">
+                            twitter.com/docesedesserts
+                        </a>
+                    </div>
+                    <div class="ms-4">
+                        <i class="bi bi-instagram fs-2"></i>
+                        <a class="text-decoration-none gray ms-2" asp-area="" asp-controller="Home" asp-action="Index">
+                            instagram.com/docesedesserts
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h3> FORMAS DE PAGAMENTO:</h3>
+                <img src="~/img/formadepagamentosatual.jpg" class="" alt="ImagemFormaPagamento">
+            </div>
+            <div class="text-muted text-center mt-2">
+                &copy; 2024 - Cakes & Desserts. Todos direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

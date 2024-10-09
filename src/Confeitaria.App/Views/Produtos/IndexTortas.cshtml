@@ -1,0 +1,36 @@
+﻿<link rel="stylesheet" href="~/css/indexproduto.css" asp-append-version="true" />
+
+@model IEnumerable<Confeitaria.App.ViewModels.ProdutoViewModel>
+
+@{
+    ViewData["Title"] = "IndexTortas";
+}
+
+<div class="box">
+    <h1 class="text-center text-uppercase">Nossas Tortas</h1>
+    <hr />
+    <p>
+        <a asp-action="Create" class="text-decoration-none"><i class="fa fa-thin fa-plus fs-3"></i> Novo produto</a>
+    </p>
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 mb-4">
+                    <div class="">
+                        <a asp-action="Informacoes" asp-route-id="@item.Id"><img src="~/img/@item.Imagem" class="rounded shadow card-img" alt="ImagemProduto"></a>
+                        <div class="">
+                            <h5 class="text-uppercase nome mt-3">@Html.DisplayFor(modelItem => item.Nome)</h5>
+                            <p class="fs-2 mt-2">
+                                R$ @Html.DisplayFor(modelItem => item.Valor)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+

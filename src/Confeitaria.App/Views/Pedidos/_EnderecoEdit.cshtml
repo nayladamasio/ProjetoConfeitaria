@@ -1,0 +1,30 @@
+﻿@model Confeitaria.App.ViewModels.PedidoViewModel
+
+@{
+    ViewData["Title"] = "Atualizar Endereço";
+}
+
+<div class="modal-header">
+    <h4 class="modal-title">@ViewData["Title"]</h4>
+</div>
+
+<form asp-action="AtualizarEndereco" id="frm-atualizar-endereco">
+    <div class="modal-body">
+        <input type="hidden" asp-for="Endereco.Id" />
+        <input type="hidden" asp-for="Endereco.PedidoId" />
+
+        <partial name="_EnderecoCreate" />
+    </div>
+</form>
+
+<div class="modal-footer ro">
+    <button type="button" class="btn btn-success" id="btn-atualizar">Atualizar</button>
+    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+</div>
+
+<script>
+    BuscarCep();
+    $("#btn-atualizar").click(function () {
+        $("#frm-atualizar-endereco").submit();
+    });
+</script>

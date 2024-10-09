@@ -1,0 +1,21 @@
+﻿h1 {
+    color: #e48f9b;
+}
+
+p, li{
+    /*font-size: 30px;*/
+}
+
+.box {
+    background-color: white;
+    height: auto;
+    width: 92%;
+    margin: auto;
+    margin-top: 33px;
+    margin-bottom: 70px;
+    padding: 20px;
+}
+
+.p-email {
+    color: #e48f9b;
+}

@@ -1,0 +1,78 @@
+﻿<link rel="stylesheet" href="~/css/deleteproduto.css" asp-append-version="true" />
+
+
+@model Confeitaria.App.ViewModels.ProdutoViewModel
+
+@{
+    ViewData["Title"] = "Excluir Produto";
+}
+
+<div class="row box text-muted shadow-lg">
+    <hr />
+    <table class="table text-secondary">
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Nome)</th>
+            <td scope="row">@Html.DisplayFor(model => model.Nome)</td>
+        </tr>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Descricao)</th>
+            <td>@Html.DisplayFor(model => model.Descricao)</td>
+        </tr>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Imagem)</th>
+            <td>@Html.DisplayFor(model => model.Imagem)</td>
+        </tr>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Peso)</th>
+            <td>@Html.DisplayFor(model => model.Peso)</td>
+        </tr>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Valor)</th>
+            <td>@Html.DisplayFor(model => model.Valor)</td>
+        </tr>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Categoria)</th>
+            <td>@Html.DisplayFor(model => model.Categoria)</td>
+        </tr>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Disponivel)</th>
+            <td>@Html.DisplayFor(model => model.Disponivel)</td>
+        </tr>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.DataCadastro)</th>
+            <td>@Html.DisplayFor(model => model.DataCadastro)</td>
+        </tr>
+    </table>
+
+    <button type="button" class="btn-outline mx-auto btn-excluir" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Excluir Produto
+    </button>
+
+    <div>
+        @* <a asp-action="Index"><i class="fa fa-reply"></i></a> *@
+        <a asp-action="Informacoes" asp-route-id="@Model.Id" class="a-link text-decoration-none fs-3">voltar para página anterior</a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    @* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> *@
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Tem certeza que deseja excluir este produto?
+                </div>
+                <div class="modal-footer">
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="submit" value="Sim" class="botao" />
+                        <a asp-action="Delete" class="botao">Não</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

@@ -1,0 +1,57 @@
+﻿.box {
+    background-color: white;
+    height: auto;
+    width: 85%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 70px;
+    padding: 20px;
+}
+
+th {
+    font-size: 45px;
+    color: black;
+    font-weight: 200;
+}
+
+td {
+    font-size: 38px;
+}
+
+.a-link {
+    background-color: #e48f9b;
+    color: white;
+    font-size: 40px;
+    margin-top: 12px;
+    width: 20%;
+    border-radius: 30px;
+   
+}
+
+.a-link:hover{
+    color: white;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 50px;
+    color: #e48f9b;
+}
+
+.p-carrinho {
+    display: flex;
+    justify-content: right;
+    padding-right: 150px;
+    margin-top: 30px;
+}
+
+.a-cont {
+    color: #e48f9b;
+    font-size: 41px;
+    display: flex;
+    justify-content: right;
+}

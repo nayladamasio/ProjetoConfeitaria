@@ -1,0 +1,76 @@
+﻿<link rel="stylesheet" href="~/css/editproduto.css" asp-append-version="true" />
+
+
+@model Confeitaria.App.ViewModels.ProdutoViewModel
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<div class="row box text-muted shadow-lg">
+    <h1 class="text-center">Editar Produto</h1>
+    <hr />
+        <form enctype="multipart/form-data" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Imagem atual:</label><br />
+                <img src="~/img/@Model.Imagem" alt="@Model.Imagem" style="height: 100px" class="rounded float-start mb-3" />
+            </div>
+            <div class="form-group">
+                <input type="file" asp-for="ImageUpload" class="form-control" />
+                <span asp-validation-for="ImageUpload" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Peso" class="control-label"></label>
+                <input asp-for="Peso" class="form-control" />
+                <span asp-validation-for="Peso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Valor" class="control-label"></label>
+                <input asp-for="Valor" class="form-control" />
+                <span asp-validation-for="Valor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Categoria" class="control-label"></label>
+                <select asp-for="Categoria" class="form-select fs-4">
+                    <option value="1">Bolo</option>
+                    <option value="2">Torta</option>
+                    <option value="3">CupCake</option>
+                </select>
+                <span asp-validation-for="Categoria" class="text-danger"></span>
+            </div>
+     @*        <div class="form-group">
+                <label asp-for="DataCadastro" class="control-label"></label>
+                <input asp-for="DataCadastro" class="form-control" />
+                <span asp-validation-for="DataCadastro" class="text-danger"></span>
+            </div> *@
+        <div class="form-group form-check">
+            <label class="form-check-label mt-2">
+                <input class="form-check-input fs-3 mt-3" asp-for="Disponivel" /> @Html.DisplayNameFor(model => model.Disponivel)
+            </label>
+        </div>
+            <div class="form-group text-center">
+            <input type="submit" value="Salvar" class="btn-salvar btn-secundary" />
+            </div>
+        <div>
+            @* <a asp-action="Index"><i class="fa fa-reply"></i></a> *@
+            <a asp-action="Informacoes" asp-route-id="@Model.Id" class="a-link text-decoration-none fs-3">voltar para página anterior</a>
+        </div>
+        </form>
+        </div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,46 @@
+﻿<link rel="stylesheet" href="~/css/carrinho.css" asp-append-version="true" />
+
+@model IEnumerable<Confeitaria.App.ViewModels.ProdutoViewModel>
+
+@{
+    ViewData["Title"] = "Carrinho";
+}
+
+<div class="box shadow-lg">
+    <div class="d-flex row mx-auto">
+        <h1 class="text-center">Meu Carrinho</h1>
+        @if (Model != null && Model.Any())
+        {
+            <hr />
+            <table class="table table-borderless text-secondary">
+                <thead>
+                    <tr>
+                        <th>Produtos</th>
+                        <th>Nome</th>
+                        <th>Quantidade</th>  
+                        <th>Preço</th>
+                    </tr>
+                </thead>
+                @foreach (var produto in Model)
+                {
+                    <tbody>
+                        <tr>
+                            <td> <img src="~/img/@produto.Imagem" class="w-25" /></td>
+                            <td>@produto.Nome</td>
+                            <td>@produto.Quantidade</td> 
+                            <td>@produto.Valor</td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <p class="text-black p-carrinho">Total:</p>
+            <div class="">
+                <a asp-action="Index" asp-controller="Produtos" class="a-cont text-decoration-none">Contiuar comprando</a>
+            </div>
+        }
+        else
+        {
+            <h2 class="text-center mt-5 mb-5 fs-1">O carrinho está vazio...</h2>
+        }
+    </div>
+</div>

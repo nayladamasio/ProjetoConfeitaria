@@ -1,0 +1,82 @@
+﻿<link rel="stylesheet" href="~/css/infoproduto.css" asp-append-version="true" />
+
+@model Confeitaria.App.ViewModels.ProdutoViewModel
+
+@{
+    ViewData["Title"] = "Informações Produto";
+}
+
+<div class="row box text-muted shadow-lg">
+    <div class="dropdown">
+        <button class="btn-dropdown dropdown-toggle-split" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-bars i-barra"></i>
+        </button>
+        <ul class="dropdown-menu p-3 ps-4" aria-labelledby="dropdownMenuButton1">
+            @* <li class="d-flex"><a asp-action="Edit" asp-route-id="@Model.Id" class="fa fa-pencil btn border"></a></li> *@
+            <li><a asp-action="Edit" asp-route-id="@Model.Id">Editar</a></li>
+            @* <li class="d-flex"><a asp-action="Details" asp-route-id="@Model.Id" class="fa fa-info-circle btn border"></a></li> *@
+            <li><a asp-action="Details" asp-route-id="@Model.Id">Detalhes</a></li>
+            @* <li><a asp-action="Delete" asp-route-id="@Model.Id" class="fa fa-trash btn border"></a></li> *@
+            <li><a asp-action="Delete" asp-route-id="@Model.Id">Excluir</a></li>
+        </ul>
+    </div>
+    <div class="col-md-6 imagemdetails">
+        <img src="~/img/@Model.Imagem" class="shadow mt-4" style="height: 290px" alt="ImagemProduto">
+
+        <p class="mt-5">
+            R$: @Html.DisplayFor(model => model.Valor) /un. 
+            @*      @Html.DisplayNameFor(model => model.Peso) *@
+        @*     @Html.DisplayFor(model => model.Peso) *@
+        </p>
+        @* <a asp-action="Index"><i class="fa fa-reply"></i></a> *@
+        @* <a asp-action="Index" class="text-decoration-none fs-4">voltar para página anterior</a> *@
+    </div>
+    <div class="col-md-6 details mt-4 ">
+        <h1 class="text-uppercase">@Html.DisplayFor(model => model.Nome)</h1>
+        <hr />
+        <p class="pt-3 pb-3">
+            @Html.DisplayFor(model => model.Descricao)
+            - "Descrição do produto..."
+        </p>
+        <p>
+        @Html.DisplayNameFor(model => model.Peso)
+        @Html.DisplayFor(model => model.Peso)
+        </p>
+       
+      @*   <div class="d-flex row form-group col-md-6">
+            <form asp-action="Create" asp-controller="Pedidos" >
+            @* <label asp-for="Pedido.QuantProduto" class="control-label fs-2"></label> *@
+           @*  quantidade
+            <input asp-for="Pedido.QuantProduto" class="form-control ms-2 fs-4 w-50" /> *@
+            @* <span asp-validation-for="Pedido.QuantProduto" class="text-danger"></span> *@
+           @*  </form> *@
+       @*  </div> *@ 
+
+       
+        <hr />
+        <div class="form-group">
+            <label asp-for="Quantidade" class="control-label"></label>
+            <input asp-for="Quantidade" class="form-control" />
+            <span asp-validation-for="Quantidade" class="text-danger"></span>
+        </div>
+  @*       @Html.DisplayNameFor(model => model.Quantidade)
+        @Html.DisplayFor(model => model.Quantidade) *@
+
+        <form asp-action="AdicionarAoCarrinho" asp-controller="Produtos" asp-route-id="@Model.Id" method="post">
+            <input type="hidden" name="produtoId" value="@Model.Id" />
+            <button type="submit" class="btn btn-carrinho"> Adicionar ao Carrinho</button>
+        </form>
+
+    </div>
+    @*    <div class="col-md-6 details mt-4 ">
+    <p class="pt-3">
+    @Html.DisplayNameFor(model => model.Peso)
+    @Html.DisplayFor(model => model.Peso)
+    </p>
+    </div> *@
+
+    @* <button type="submit" class="btn btn-comprar">Comprar</button> *@
+    @* <a asp-action="Index" class="btn btn-comprar">Comprar</a> *@
+    <br/>
+    <a asp-action="Index" class="a-link text-decoration-none fs-3">voltar para página anterior</a>
+</div>

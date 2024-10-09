@@ -1,0 +1,37 @@
+﻿.box {
+    background-color: white;
+    height: auto;
+    width: 60%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 70px;
+    padding: 20px;
+    font-size: 35px;
+    text-align:left;
+}
+
+.btn {
+    background-color: white;
+    color: #e48f9b;
+    font-size: 35px;
+    margin-top: 20px;
+    width: 50%;
+    /*border: solid;*/
+}
+
+.btn:hover {
+    color: #e48f9b;
+}
+
+i {
+    color: #e48f9b;
+}
+
+.a-link {
+    margin-top: 50px;
+    color: #e48f9b;
+}
+
+.a-link:hover{
+    color: black;
+}

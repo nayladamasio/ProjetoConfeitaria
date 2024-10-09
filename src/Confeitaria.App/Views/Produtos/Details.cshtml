@@ -1,0 +1,54 @@
+﻿<link rel="stylesheet" href="~/css/detailsproduto.css" asp-append-version="true" />
+
+@model Confeitaria.App.ViewModels.ProdutoViewModel
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<div class="row box text-muted shadow-lg">
+    <h1 class="text-center">Detalhes do Produto</h1>
+    <hr />
+    <table class="table text-secondary">
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Nome)</th>
+            <td scope="row">@Html.DisplayFor(model => model.Nome)</td>
+        </tr>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Descricao)</th>
+            <td>@Html.DisplayFor(model => model.Descricao)</td>
+        </tr>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Imagem)</th>
+            <td> <img src="~/img/@Model.Imagem" class="w-25" /></td>
+        </tr>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Peso)</th>
+            <td>@Html.DisplayFor(model => model.Peso)</td>
+        </tr>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Valor)</th>
+            <td>@Html.DisplayFor(model => model.Valor)</td>
+        </tr>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Categoria)</th>
+            <td>@Html.DisplayFor(model => model.Categoria)</td>
+        </tr>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Disponivel)</th>
+            <td>@Html.DisplayFor(model => model.Disponivel)</td>
+        </tr>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.DataCadastro)</th>
+            <td>@Html.DisplayFor(model => model.DataCadastro)</td>
+        </tr>
+    </table>
+    <div class=" text-center">
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-secundary">Editar Produto</a>
+    </div>
+    <div>
+        @* <a asp-action="Index"><i class="fa fa-reply"></i></a> *@
+        <a asp-action="Informacoes" asp-route-id="@Model.Id" class="a-link text-decoration-none fs-3">voltar para página anterior</a>
+    </div>
+</div>
+

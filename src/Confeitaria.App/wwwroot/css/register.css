@@ -1,0 +1,56 @@
+﻿.box {
+    background-color: white;
+    height: auto;
+    width: 50%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 70px;
+    padding: 20px;
+}
+
+.box1 {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    margin-top: -25px;
+}
+
+h2 {
+    color: #e48f9b;
+    font-weight: 600;
+}
+
+.btn {
+    background-color: #e48f9b;
+    color: white;
+    font-size: 26px;
+    margin-top: 12px;
+}
+
+.btn:hover {
+    color: white;
+}
+
+.checkbox {
+    font-size: 17px;
+}
+
+form, hr {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 19px;
+    font-size: 27px;
+}
+
+label{
+    transition: opacity 0.3s ease;
+}
+
+input:focus + label {
+    opacity: 0;
+}
+
+input:not(:placeholder-shown) + label {
+    opacity: 0;
+}

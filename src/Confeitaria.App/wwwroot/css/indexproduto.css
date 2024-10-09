@@ -1,0 +1,59 @@
+﻿.box {
+    background-color: white;
+    height: auto;
+    width: 95%;
+    margin: auto;
+    margin-bottom: 70px;
+    padding: 20px;
+}
+
+h5{
+    font-size: 30px;
+}
+/*.novoproduto {
+    font-size: 38px;
+    color: #e48f9b;
+    margin-left: 20px;
+}*/
+
+p a {
+    font-size: 38px;
+    color: #6c757d;
+    margin-left: 20px;
+}
+
+p a:hover{
+    color: black;
+}
+
+.info {
+    text-decoration: none;
+    color: #6c757d;
+    font-size: 28px;
+}
+
+.descricao {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.nome {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/*.linha {
+    border-bottom: 1px solid #acacac;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 20px;
+}*/
+
+h1 {
+    color: #e48f9b;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 42px;
+}

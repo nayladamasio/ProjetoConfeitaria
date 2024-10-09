@@ -1,0 +1,53 @@
+﻿.box {
+    background-color: white;
+    height: auto;
+    width: 60%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 70px;
+    padding: 20px;
+    font-size: 35px;
+    text-align: left;
+}
+.btn-excluir {
+    background-color: white;
+    color: #e48f9b;
+    font-size: 35px;
+    margin-top: 20px;
+    width: 22%;
+    border: none;
+}
+
+.btn:hover, btn:visited, btn:active, btn:focus {
+    color: #e48f9b;
+}
+
+.botao {
+    background-color: white;
+    color: #e48f9b;
+    font-size: 35px;
+    margin-top: 20px;
+    width: 47%;
+    height: 55px;
+    padding-top: 2px;
+    text-decoration: none;
+    border: none;
+}
+
+.botao:hover{
+    color: black;
+}
+
+.modal-body{
+    font-size: 32px;
+}
+
+.a-link {
+    margin-top: 50px;
+    color: #e48f9b;
+}
+
+.a-link:hover {
+    color: black;
+}
+

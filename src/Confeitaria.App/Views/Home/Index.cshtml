@@ -1,0 +1,66 @@
+﻿<link rel="stylesheet" href="~/css/homeindex.css" asp-append-version="true"/>
+
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+@* <h1 class="text-center">INICIO </h1> *@
+
+
+<h1 class="text-center text-uppercase fs-1">Nossas sobremesas</h1>
+<div class="linha"></div>
+
+<div id="carouselExampleControls" class="carousel slide mt-5 carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/img/BolosCarrosel.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/img/TortasCarrosel2.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/img/BolosCarrosel2.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/img/CupCakesCarrosel2.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/img/TortasCarrosel.png" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<h1 class="text-center text-uppercase fs-1">Os mais pedidos</h1>
+<div class="linha"></div>
+
+<div class="row container-fluid text-center mt-5 mb-5">
+    <div class="col-md-4">
+        <figure class="figure">
+            <img src="~/img/MaisPedidos1.1.png" class="imgefeito rounded" alt="ImagemMaisPedidos1">
+            <figcaption class="figure-caption fs-3 mt-3">BOLO DE CHOCOLATE COM RECHEIO DE CHANTILY</figcaption>
+            <figcaption class="figure-caption fs-4"> R$ 130,00</figcaption>
+        </figure>
+    </div>
+    <div class="col-md-4">
+        <figure class="figure">
+            <img src="~/img/MaisPedidos2.png" class="imgefeito rounded" alt="ImagemMaisPedidos2">
+            <figcaption class="figure-caption fs-3 mt-3">TORTA DE PISTACHE</figcaption>
+            <figcaption class="figure-caption fs-4"> R$ 200,00</figcaption>
+        </figure>
+    </div>
+    <div class="col-md-4">
+        <figure class="figure">
+            <img src="~/img/MaisPedidos3.png" class="imgefeito rounded" alt="ImagemMaisPedidos2">
+            <figcaption class="figure-caption fs-3 mt-3">BOLO RED VELVET</figcaption>
+            <figcaption class="figure-caption fs-4"> R$ 250,00</figcaption>
+        </figure>
+    </div>
+</div> 

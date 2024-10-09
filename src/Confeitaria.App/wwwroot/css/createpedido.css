@@ -1,0 +1,43 @@
+﻿.box {
+    background-color: white;
+    height: auto;
+    width: 70%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 70px;
+    padding: 20px;
+    font-size: 35px;
+    text-align: left;
+}
+
+
+.btn {
+    background-color: white;
+    color: #e48f9b;
+    font-size: 32px;
+    width: 18%;
+    display: flex;
+    justify-content: center;
+    border: solid 2px;
+    border-radius: 40px;
+    border-color: #e48f9b;
+    
+}
+
+.btn:hover {
+    color: #e48f9b;
+}
+
+
+h1 {
+    color: #e48f9b;
+/*    font-size: 40px;
+    text-align: center;*/
+}
+
+.back {
+    text-decoration: none;
+    color: #e48f9b;
+    display: flex;
+    justify-content: right;
+}

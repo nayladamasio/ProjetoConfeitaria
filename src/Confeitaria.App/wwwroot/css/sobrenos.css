@@ -1,0 +1,23 @@
+﻿.box {
+    background-color: white;
+    height: auto;
+    width: 85%;
+    margin: auto;
+    margin-top: 33px;
+    margin-bottom: 70px;
+    padding: 20px;
+}
+
+h1 {
+    color: #e48f9b;
+    font-size: 40px;
+    text-align: center;
+}
+
+li{
+    margin-top: 18px;
+}
+
+.span {
+    color: #e48f9b;
+}

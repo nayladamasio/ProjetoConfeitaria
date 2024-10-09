@@ -1,0 +1,122 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html, body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #f7ebec;
+    font-family: 'Pompiere', serif;
+    font-size: 50px;
+    color: #808080;
+    /*color: #f7ebec;*/
+}
+
+.cabecalho {
+    padding: 10px;
+    width: 100%;
+}
+
+.logo {
+    width: 200px;
+    margin-left: -8px;
+}
+
+li {
+    font-size: 27px;
+}
+
+.btn-menu {
+    background-color: white; 
+    padding: 8px; /* Padding do botão */
+    border: none;
+    text-decoration: none; 
+    color: #808080;
+}
+
+.iconemenu {
+    width: 40px;
+}
+
+.conteudo {
+    flex: 1 0 auto;
+}
+
+.rodape {
+    padding: 10px;
+    padding-top: 25px;
+    text-align: center;
+}
+
+footer {
+    font-size: 22px;
+    color: black;
+    background-color: #f7ebec;
+}
+
+.institucional {
+    display: block; /* Exibe os links um abaixo do outro */
+    text-decoration: none;
+    height: 40px;
+    color: #808080;
+}
+
+h3 {
+    /*color: #463f3a;*/
+    /*color: #284b63;*/
+    color: #808080;
+    font-size: 26px;
+    font-weight:bold;
+}
+
+.gray {
+    color: #808080;
+}
+
+.i-cart {
+    color: #808080;
+    font-size: 30px;
+   /* margin-right: 2px;*/
+    margin-left: 9px;
+}
+
+.i-cart:hover {
+    color: #e8777f;
+}
+
+.font{
+    font-size: 26px;
+}
+
+a:hover{
+    color: black;
+}
+
+.i-contato{
+  color: black;
+}
+
+.nav-item{
+    text-align:center;
+    font-size: 32px;
+}
+
+.link{
+    margin-right: 80px;
+}
