@@ -10,8 +10,8 @@ namespace Confeitaria.Data.Mappings
         {
             builder.HasKey(p => p.Id);
 
-            builder.Property(p => p.QuantProduto)
-                .IsRequired();
+            //builder.Property(p => p.QuantProduto)
+            //    .IsRequired();
 
             // relacionamento
             builder.HasOne(p => p.Cliente)
@@ -20,9 +20,14 @@ namespace Confeitaria.Data.Mappings
             builder.HasOne(p => p.Endereco)
                 .WithOne(e => e.Pedido);
 
-            builder.HasMany(p => p.Produtos)
-                .WithMany(p => p.Pedidos)
-                .UsingEntity(j => j.ToTable("PedidosProdutos"));
+            //builder.HasMany(p => p.Produtos)
+            //    .WithMany(p => p.Pedidos)
+            //    .UsingEntity(j => j.ToTable("PedidosProdutos"));
+
+            builder.HasMany(p => p.PedidoProdutos)
+                .WithOne(p => p.Pedido)
+                .HasForeignKey(p => p.PedidoId);
+                
 
             builder.ToTable("TB_PEDIDOS");
         }

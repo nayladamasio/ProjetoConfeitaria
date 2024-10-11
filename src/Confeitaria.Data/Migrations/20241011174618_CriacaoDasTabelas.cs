@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Confeitaria.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class CriacaoTabelasSistemas : Migration
+    public partial class CriacaoDasTabelas : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -54,7 +54,6 @@ namespace Confeitaria.Data.Migrations
                     DataPedido = table.Column<DateTime>(type: "datetime2", nullable: false),
                     HorarioEntrega = table.Column<int>(type: "int", nullable: false),
                     FormaPagamento = table.Column<int>(type: "int", nullable: false),
-                    QuantProduto = table.Column<int>(type: "int", nullable: false),
                     ClienteId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -64,28 +63,6 @@ namespace Confeitaria.Data.Migrations
                         name: "FK_TB_PEDIDOS_TB_CLIENTES_ClienteId",
                         column: x => x.ClienteId,
                         principalTable: "TB_CLIENTES",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "PedidosProdutos",
-                columns: table => new
-                {
-                    PedidosId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ProdutosId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PedidosProdutos", x => new { x.PedidosId, x.ProdutosId });
-                    table.ForeignKey(
-                        name: "FK_PedidosProdutos_TB_PEDIDOS_PedidosId",
-                        column: x => x.PedidosId,
-                        principalTable: "TB_PEDIDOS",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_PedidosProdutos_TB_PRODDUTOS_ProdutosId",
-                        column: x => x.ProdutosId,
-                        principalTable: "TB_PRODDUTOS",
                         principalColumn: "Id");
                 });
 
@@ -113,10 +90,28 @@ namespace Confeitaria.Data.Migrations
                         principalColumn: "Id");
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_PedidosProdutos_ProdutosId",
-                table: "PedidosProdutos",
-                column: "ProdutosId");
+            migrationBuilder.CreateTable(
+                name: "TB_PEDIDOSPRODUTOS",
+                columns: table => new
+                {
+                    PedidoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ProdutoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Quantidade = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TB_PEDIDOSPRODUTOS", x => new { x.PedidoId, x.ProdutoId });
+                    table.ForeignKey(
+                        name: "FK_TB_PEDIDOSPRODUTOS_TB_PEDIDOS_PedidoId",
+                        column: x => x.PedidoId,
+                        principalTable: "TB_PEDIDOS",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_TB_PEDIDOSPRODUTOS_TB_PRODDUTOS_ProdutoId",
+                        column: x => x.ProdutoId,
+                        principalTable: "TB_PRODDUTOS",
+                        principalColumn: "Id");
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_TB_ENDERECOPEDIDO_PedidoId",
@@ -128,22 +123,27 @@ namespace Confeitaria.Data.Migrations
                 name: "IX_TB_PEDIDOS_ClienteId",
                 table: "TB_PEDIDOS",
                 column: "ClienteId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TB_PEDIDOSPRODUTOS_ProdutoId",
+                table: "TB_PEDIDOSPRODUTOS",
+                column: "ProdutoId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "PedidosProdutos");
-
-            migrationBuilder.DropTable(
                 name: "TB_ENDERECOPEDIDO");
 
             migrationBuilder.DropTable(
-                name: "TB_PRODDUTOS");
+                name: "TB_PEDIDOSPRODUTOS");
 
             migrationBuilder.DropTable(
                 name: "TB_PEDIDOS");
+
+            migrationBuilder.DropTable(
+                name: "TB_PRODDUTOS");
 
             migrationBuilder.DropTable(
                 name: "TB_CLIENTES");

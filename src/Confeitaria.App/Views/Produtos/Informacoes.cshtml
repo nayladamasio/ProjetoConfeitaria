@@ -54,15 +54,17 @@
 
        
         <hr />
-        <div class="form-group">
+      @*   <div class="form-group">
             <label asp-for="Quantidade" class="control-label"></label>
             <input asp-for="Quantidade" class="form-control" />
             <span asp-validation-for="Quantidade" class="text-danger"></span>
-        </div>
+        </div> *@
   @*       @Html.DisplayNameFor(model => model.Quantidade)
         @Html.DisplayFor(model => model.Quantidade) *@
 
         <form asp-action="AdicionarAoCarrinho" asp-controller="Produtos" asp-route-id="@Model.Id" method="post">
+            <label asp-for="Quantidade" class="fs-2"></label>
+            <input asp-for="Quantidade" value="1" min="1"/>
             <input type="hidden" name="produtoId" value="@Model.Id" />
             <button type="submit" class="btn btn-carrinho"> Adicionar ao Carrinho</button>
         </form>

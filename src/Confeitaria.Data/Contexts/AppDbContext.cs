@@ -11,10 +11,10 @@ namespace Confeitaria.Data.Contexts
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<EnderecoPedido> PedidosEndereco { get; set; }
         public DbSet<Produto> Produtos { get; set; }
+        public DbSet<PedidoProduto> PedidoProdutos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
             foreach (var property in modelBuilder.Model.GetEntityTypes()
                 .SelectMany(e => e.GetProperties()
                 .Where(p => p.ClrType == typeof(string))))

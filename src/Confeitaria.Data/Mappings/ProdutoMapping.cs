@@ -25,6 +25,10 @@ namespace Confeitaria.Data.Mappings
               .IsRequired()
               .HasColumnType("varchar(50)");
 
+            builder.HasMany(p => p.PedidoProdutos)
+            .WithOne(p => p.Produto)
+            .HasForeignKey(p => p.ProdutoId);
+
             builder.ToTable("TB_PRODDUTOS");
 
 

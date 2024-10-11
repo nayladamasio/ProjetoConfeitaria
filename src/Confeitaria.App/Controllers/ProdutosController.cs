@@ -93,7 +93,7 @@ namespace Confeitaria.App.Controllers
             produtoViewModel.Imagem = imgPrefixo + produtoViewModel.ImageUpload.FileName;
 
             await _produtoRepository.Adicionar(_mapper.Map<Produto>(produtoViewModel));
-            
+
 
             return RedirectToAction("Index");
         }
@@ -207,7 +207,7 @@ namespace Confeitaria.App.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AdicionarAoCarrinho(Guid id)
+        public async Task<IActionResult> AdicionarAoCarrinho(Guid id, int quantidade)
         {
             var produto = await _produtoRepository.ObterPorID(id);
             if (produto == null) return NotFound();
@@ -217,14 +217,20 @@ namespace Confeitaria.App.Controllers
             //_carrinho.Add(produtoViewModel.Quantidade);
             //produtoViewModel.Quantidade = produtoViewModel.Quantidade;
 
-            
-            
+            produtoViewModel.Quantidade = quantidade;
+
             _carrinho.Add(produtoViewModel);
 
             return RedirectToAction("Carrinho");
 
         }
 
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> RemoverDoCarrinho(Guid id)
+        //{
+            
+        //}
         public IActionResult Carrinho()
         {
             return View(_carrinho);

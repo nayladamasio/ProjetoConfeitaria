@@ -49,6 +49,8 @@ namespace Confeitaria.App.Controllers
             
             var pedido = _mapper.Map<Pedido>(pedidoViewModel);
 
+            //await pedido.PedidoProdutos.Add(Pedidoproduto);
+
             await _pedidoRepository.Adicionar(pedido);
 
             return RedirectToAction("Index");
@@ -91,7 +93,7 @@ namespace Confeitaria.App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var pedidoViewModel = await ObterPedidoProdutos(id);
+            var pedidoViewModel = await ObterPedidoEndereco(id);
 
             if (pedidoViewModel == null) return NotFound();
 
@@ -137,9 +139,9 @@ namespace Confeitaria.App.Controllers
         {
             return _mapper.Map<PedidoViewModel>(await _pedidoRepository.ObterPedidoEndereco(id));
         }
-        private async Task<PedidoViewModel> ObterPedidoProdutos(Guid id)
-        {
-            return _mapper.Map<PedidoViewModel>(await _pedidoRepository.ObterPedidoProdutos(id));
-        }
+        //private async Task<PedidoViewModel> ObterPedidoProdutos(Guid id)
+        //{
+        //    return _mapper.Map<PedidoViewModel>(await _pedidoRepository.ObterPedidoProdutos(id));
+        //}
     }
 }

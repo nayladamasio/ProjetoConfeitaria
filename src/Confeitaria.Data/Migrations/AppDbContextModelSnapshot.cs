@@ -114,14 +114,29 @@ namespace Confeitaria.Data.Migrations
                     b.Property<int>("HorarioEntrega")
                         .HasColumnType("int");
 
-                    b.Property<int>("QuantProduto")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
 
                     b.ToTable("TB_PEDIDOS", (string)null);
+                });
+
+            modelBuilder.Entity("Confeitaria.Business.Models.PedidoProduto", b =>
+                {
+                    b.Property<Guid>("PedidoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProdutoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.HasKey("PedidoId", "ProdutoId");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("TB_PEDIDOSPRODUTOS", (string)null);
                 });
 
             modelBuilder.Entity("Confeitaria.Business.Models.Produto", b =>
@@ -162,21 +177,6 @@ namespace Confeitaria.Data.Migrations
                     b.ToTable("TB_PRODDUTOS", (string)null);
                 });
 
-            modelBuilder.Entity("PedidoProduto", b =>
-                {
-                    b.Property<Guid>("PedidosId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ProdutosId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("PedidosId", "ProdutosId");
-
-                    b.HasIndex("ProdutosId");
-
-                    b.ToTable("PedidosProdutos", (string)null);
-                });
-
             modelBuilder.Entity("Confeitaria.Business.Models.EnderecoPedido", b =>
                 {
                     b.HasOne("Confeitaria.Business.Models.Pedido", "Pedido")
@@ -196,17 +196,21 @@ namespace Confeitaria.Data.Migrations
                     b.Navigation("Cliente");
                 });
 
-            modelBuilder.Entity("PedidoProduto", b =>
+            modelBuilder.Entity("Confeitaria.Business.Models.PedidoProduto", b =>
                 {
-                    b.HasOne("Confeitaria.Business.Models.Pedido", null)
-                        .WithMany()
-                        .HasForeignKey("PedidosId")
+                    b.HasOne("Confeitaria.Business.Models.Pedido", "Pedido")
+                        .WithMany("PedidoProdutos")
+                        .HasForeignKey("PedidoId")
                         .IsRequired();
 
-                    b.HasOne("Confeitaria.Business.Models.Produto", null)
-                        .WithMany()
-                        .HasForeignKey("ProdutosId")
+                    b.HasOne("Confeitaria.Business.Models.Produto", "Produto")
+                        .WithMany("PedidoProdutos")
+                        .HasForeignKey("ProdutoId")
                         .IsRequired();
+
+                    b.Navigation("Pedido");
+
+                    b.Navigation("Produto");
                 });
 
             modelBuilder.Entity("Confeitaria.Business.Models.Cliente", b =>
@@ -217,6 +221,13 @@ namespace Confeitaria.Data.Migrations
             modelBuilder.Entity("Confeitaria.Business.Models.Pedido", b =>
                 {
                     b.Navigation("Endereco");
+
+                    b.Navigation("PedidoProdutos");
+                });
+
+            modelBuilder.Entity("Confeitaria.Business.Models.Produto", b =>
+                {
+                    b.Navigation("PedidoProdutos");
                 });
 #pragma warning restore 612, 618
         }

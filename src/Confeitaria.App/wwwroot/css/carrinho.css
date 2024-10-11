@@ -15,7 +15,8 @@ th {
 }
 
 td {
-    font-size: 38px;
+    font-size: 40px;
+    
 }
 
 .a-link {
@@ -54,4 +55,13 @@ h1 {
     font-size: 41px;
     display: flex;
     justify-content: right;
+}
+
+.i-trash {
+    color: #e48f9b;
+}
+
+.btn{
+    
+    margin-bottom: 20px;
 }

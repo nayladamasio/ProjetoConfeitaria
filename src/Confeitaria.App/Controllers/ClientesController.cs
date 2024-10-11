@@ -36,7 +36,6 @@ namespace Confeitaria.App.Controllers
         {
             return View();
         }
-
      
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -57,7 +56,6 @@ namespace Confeitaria.App.Controllers
             
             return View(clienteViewModel);
         }
-
        
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -95,7 +93,6 @@ namespace Confeitaria.App.Controllers
 
             return RedirectToAction("Index");
         }
-
 
         private async Task<ClienteViewModel> ObterCliente(Guid id)
         {

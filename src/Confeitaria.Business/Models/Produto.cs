@@ -14,7 +14,7 @@ namespace Confeitaria.Business.Models
         public bool Disponivel { get; set; }
         public DateTime DataCadastro { get; set; }
 
-        public IEnumerable<Pedido> Pedidos { get; set; }
+        public IEnumerable<PedidoProduto> PedidoProdutos { get; set; }
 
         public Produto()
         {

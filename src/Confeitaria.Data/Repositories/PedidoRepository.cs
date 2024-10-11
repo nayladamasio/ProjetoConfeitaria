@@ -12,11 +12,11 @@ namespace Confeitaria.Data.Repositories
         public async Task<Pedido> ObterPedidoEndereco(Guid id)
         {
             return await Db.Pedidos.AsNoTracking().Include(p => p.Endereco).FirstOrDefaultAsync(p => p.Id == id);  
-        }    
-
-        public async Task<Pedido> ObterPedidoProdutos(Guid id)
-        {
-            return await Db.Pedidos.AsNoTracking().Include(p => p.Produtos).FirstOrDefaultAsync(p => p.Id == id);
         }
+
+        //public async Task<Pedido> ObterPedidoProdutos(Guid id)
+        //{
+        //    return await Db.Pedidos.AsNoTracking().Include(p => p.Produtos).FirstOrDefaultAsync(p => p.Id == id);
+        //}
     }
 }

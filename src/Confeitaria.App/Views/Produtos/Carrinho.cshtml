@@ -15,10 +15,11 @@
             <table class="table table-borderless text-secondary">
                 <thead>
                     <tr>
-                        <th>Produtos</th>
+                        <th>Produto</th>
                         <th>Nome</th>
+                        <th>Valor Unitário</th>
                         <th>Quantidade</th>  
-                        <th>Preço</th>
+                        <th>Valor Total</th>
                     </tr>
                 </thead>
                 @foreach (var produto in Model)
@@ -27,13 +28,24 @@
                         <tr>
                             <td> <img src="~/img/@produto.Imagem" class="w-25" /></td>
                             <td>@produto.Nome</td>
-                            <td>@produto.Quantidade</td> 
                             <td>@produto.Valor</td>
+                            <td><input asp-for="@produto.Quantidade" value="@produto.Quantidade" /></td>
+                            <td>
+                                @(produto.Valor * produto.Quantidade)
+                            <td>
+                                @* <a asp-action="Index" asp-controller="Produtos" class="fs-2  bi bi-trash i-trash"></a> *@
+                                <form asp-action="RemoverdoCarrinho" asp-controller="Produtos" asp-route-id="@produto.Id" method="post">
+                                    <input type="hidden" name="produtoId" value="@produto.Id" />
+                                    <button type="submit" class="btn i-trash fs-2  bi bi-trash"></button>
+                                </form>
+                            </td>
                         </tr>
                     </tbody>
                 }
             </table>
-            <p class="text-black p-carrinho">Total:</p>
+            <p class="text-black p-carrinho">Total do pedido: </p>
+            <a asp-action="Create" asp-controller="Pedidos" class="a-cont text-decoration-none">Finalizar Pedido</a>
+           
             <div class="">
                 <a asp-action="Index" asp-controller="Produtos" class="a-cont text-decoration-none">Contiuar comprando</a>
             </div>
