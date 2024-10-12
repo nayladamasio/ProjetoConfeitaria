@@ -43,7 +43,7 @@
                     </tbody>
                 }
             </table>
-            <p class="text-black p-carrinho">Total do pedido: </p>
+            <p class="text-black p-carrinho">Total do pedido: <strong class="ms-2"> @Model.Sum(p => p.Valor * p.Quantidade) </strong></p>
             <a asp-action="Create" asp-controller="Pedidos" class="a-cont text-decoration-none">Finalizar Pedido</a>
            
             <div class="">

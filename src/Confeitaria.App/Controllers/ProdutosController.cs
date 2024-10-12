@@ -13,7 +13,7 @@ namespace Confeitaria.App.Controllers
         private readonly IPedidoRepository _pedidoRepository;
         private readonly IMapper _mapper;
 
-        private static List<ProdutoViewModel> _carrinho = new List<ProdutoViewModel>();
+        public static List<ProdutoViewModel> _carrinho = new List<ProdutoViewModel>();
 
         public ProdutosController(IProdutoRepository produtoRepository, IPedidoRepository pedidoRepository, IMapper mapper)
         {
@@ -211,26 +211,32 @@ namespace Confeitaria.App.Controllers
         {
             var produto = await _produtoRepository.ObterPorID(id);
             if (produto == null) return NotFound();
-
             var produtoViewModel = _mapper.Map<ProdutoViewModel>(produto);
-
-            //_carrinho.Add(produtoViewModel.Quantidade);
-            //produtoViewModel.Quantidade = produtoViewModel.Quantidade;
-
-            produtoViewModel.Quantidade = quantidade;
-
-            _carrinho.Add(produtoViewModel);
-
+            var produtocarrinho = _carrinho.FirstOrDefault(p => p.Id == id);
+            if (produtocarrinho != null)
+            {
+                produtocarrinho.Quantidade += quantidade;
+            }
+            else 
+            {
+                produtoViewModel.Quantidade = quantidade;
+                _carrinho.Add(produtoViewModel);
+            }
             return RedirectToAction("Carrinho");
 
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> RemoverDoCarrinho(Guid id)
-        //{
-            
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult RemoverDoCarrinho(Guid id)
+        {
+            var produtocarrinho = _carrinho.FirstOrDefault(p => p.Id == id);
+
+             if (produtocarrinho != null) _carrinho.Remove(produtocarrinho);
+
+            return RedirectToAction("Carrinho");
+
+        }
         public IActionResult Carrinho()
         {
             return View(_carrinho);

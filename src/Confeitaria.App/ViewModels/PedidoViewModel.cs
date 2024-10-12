@@ -22,9 +22,6 @@ namespace Confeitaria.App.ViewModels
         [DisplayName("Forma de Pagamento")]
         public FormaPagamento FormaPagamento { get; set; }
 
-        [DisplayName("Quantidade")]
-        public int QuantProduto { get; set; }
-
         // Relacionamento
         public ClienteViewModel Cliente { get; set; }
         public EnderecoPedidoViewModel Endereco { get; set; }

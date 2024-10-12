@@ -55,7 +55,7 @@ namespace Confeitaria.Data.Repositories
             return await Db.SaveChangesAsync();
         }
 
-        public void Dispose()
+        public void Dispose() 
         {
             Db?.Dispose();
         }

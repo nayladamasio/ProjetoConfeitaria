@@ -48,10 +48,21 @@ namespace Confeitaria.App.Controllers
             pedidoViewModel.DataPedido = DateTime.Now;
             
             var pedido = _mapper.Map<Pedido>(pedidoViewModel);
-
-            //await pedido.PedidoProdutos.Add(Pedidoproduto);
+            
+            //foreach (var produto in ProdutosController._carrinho)
+            //{
+            //    var pedidoProduto = new PedidoProduto
+            //    {
+            //        PedidoId = pedido.Id,
+            //        ProdutoId = produto.Id,
+            //        Quantidade = produto.Quantidade,
+            //    };
+            //    pedido.PedidoProdutos.Add(pedidoProduto);
+            //}
 
             await _pedidoRepository.Adicionar(pedido);
+
+            ProdutosController._carrinho.Clear();
 
             return RedirectToAction("Index");
         }
