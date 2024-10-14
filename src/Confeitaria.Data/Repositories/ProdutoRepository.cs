@@ -14,5 +14,7 @@ namespace Confeitaria.Data.Repositories
         {
             return await Db.Produtos.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
         }
+
+        
     }
 }

@@ -13,5 +13,6 @@ namespace Confeitaria.Data.Repositories
         {
            return await Db.Clientes.AsNoTracking().Include(c => c.Pedidos).FirstOrDefaultAsync(c => c.Id == id);
         }
+
     }
 }

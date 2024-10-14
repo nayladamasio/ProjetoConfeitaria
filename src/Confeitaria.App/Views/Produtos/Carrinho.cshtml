@@ -18,7 +18,7 @@
                         <th>Produto</th>
                         <th>Nome</th>
                         <th>Valor Unitário</th>
-                        <th>Quantidade</th>  
+                        <th>Quantidade</th>
                         <th>Valor Total</th>
                     </tr>
                 </thead>
@@ -29,11 +29,19 @@
                             <td> <img src="~/img/@produto.Imagem" class="w-25" /></td>
                             <td>@produto.Nome</td>
                             <td>@produto.Valor</td>
-                            <td><input asp-for="@produto.Quantidade" value="@produto.Quantidade" /></td>
+                            <td>
+                                <form asp-action="AtualizarCarrinho" asp-controller="Produtos" method="post" class="input-number">
+                                    <input type="hidden" name="produtoId" value="@produto.Id" />
+                                    <button type="button" onclick="decrement()">-</button>
+                                    <input type="number" name="quantidade" value="@produto.Quantidade" min="1" />
+                                    <button type="button" onclick="increment()">+</button>
+                                </form>
+                                @*        <input asp-for="@produto.Quantidade" value="@produto.Quantidade" /> *@
+                            </td>
                             <td>
                                 @(produto.Valor * produto.Quantidade)
                             <td>
-                                @* <a asp-action="Index" asp-controller="Produtos" class="fs-2  bi bi-trash i-trash"></a> *@
+                                    @* <a asp-action="Index" asp-controller="Produtos" class="fs-2  bi bi-trash i-trash"></a> *@
                                 <form asp-action="RemoverdoCarrinho" asp-controller="Produtos" asp-route-id="@produto.Id" method="post">
                                     <input type="hidden" name="produtoId" value="@produto.Id" />
                                     <button type="submit" class="btn i-trash fs-2  bi bi-trash"></button>
@@ -41,11 +49,13 @@
                             </td>
                         </tr>
                     </tbody>
+
+                    <script src="~/js/atualizarQuantidade.js"></script>
                 }
             </table>
             <p class="text-black p-carrinho">Total do pedido: <strong class="ms-2"> @Model.Sum(p => p.Valor * p.Quantidade) </strong></p>
             <a asp-action="Create" asp-controller="Pedidos" class="a-cont text-decoration-none">Finalizar Pedido</a>
-           
+
             <div class="">
                 <a asp-action="Index" asp-controller="Produtos" class="a-cont text-decoration-none">Contiuar comprando</a>
             </div>

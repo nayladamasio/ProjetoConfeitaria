@@ -14,6 +14,11 @@ namespace Confeitaria.Data.Repositories
             return await Db.Pedidos.AsNoTracking().Include(p => p.Endereco).FirstOrDefaultAsync(p => p.Id == id);  
         }
 
+        public async Task<Pedido> ObterPedidoCliente(Guid id)
+        {
+            return await Db.Pedidos.AsNoTracking().Include(p => p.Cliente).FirstOrDefaultAsync(p => p.Id == id);
+        }
+
         //public async Task<Pedido> ObterPedidoProdutos(Guid id)
         //{
         //    return await Db.Pedidos.AsNoTracking().Include(p => p.Produtos).FirstOrDefaultAsync(p => p.Id == id);

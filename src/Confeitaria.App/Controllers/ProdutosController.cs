@@ -217,7 +217,7 @@ namespace Confeitaria.App.Controllers
             {
                 produtocarrinho.Quantidade += quantidade;
             }
-            else 
+            else
             {
                 produtoViewModel.Quantidade = quantidade;
                 _carrinho.Add(produtoViewModel);
@@ -226,13 +226,36 @@ namespace Confeitaria.App.Controllers
 
         }
 
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> AdicionarAoCarrinho(Guid id)
+        //{
+        //    var produto = await _produtoRepository.ObterPorID(id);
+        //    if (produto == null) return NotFound();
+        //    var produtoViewModel = _mapper.Map<ProdutoViewModel>(produto);
+
+        //        _carrinho.Add(produtoViewModel);
+        //    return RedirectToAction("Carrinho");
+
+        //}
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AtualizarCarrinho(Guid produtoId, int quantidade)
+        {
+            var produtocarrinho = _carrinho.FirstOrDefault(p => p.Id == produtoId);
+            if (produtocarrinho != null) produtocarrinho.Quantidade = quantidade;
+
+            return RedirectToAction("carrinho");
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult RemoverDoCarrinho(Guid id)
         {
             var produtocarrinho = _carrinho.FirstOrDefault(p => p.Id == id);
 
-             if (produtocarrinho != null) _carrinho.Remove(produtocarrinho);
+            if (produtocarrinho != null) _carrinho.Remove(produtocarrinho);
 
             return RedirectToAction("Carrinho");
 

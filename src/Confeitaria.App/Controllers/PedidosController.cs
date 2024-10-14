@@ -3,6 +3,7 @@ using Confeitaria.App.ViewModels;
 using Confeitaria.Business.Interfaces;
 using Confeitaria.Business.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Build.Execution;
 
 namespace Confeitaria.App.Controllers
 {
@@ -11,13 +12,19 @@ namespace Confeitaria.App.Controllers
         private readonly IPedidoRepository _pedidoRepository;
         private readonly IMapper _mapper;
         private readonly IEnderecoPedidoRepository _enderecoPedidoRepository;
+        private readonly IPedidoProdutoRepository _pedidoProdutoRepository;
+        private readonly IClienteRepository _clienteRepository;
 
         public PedidosController(IPedidoRepository pedidoRepository, IMapper mapper,
-                                 IEnderecoPedidoRepository enderecoPedidoRepository )
+                                 IEnderecoPedidoRepository enderecoPedidoRepository,
+                                  IPedidoProdutoRepository pedidoProdutoRepository,
+                                  IClienteRepository clienteRepository)
         {
             _pedidoRepository = pedidoRepository;
             _mapper = mapper;
             _enderecoPedidoRepository = enderecoPedidoRepository;
+            _pedidoProdutoRepository = pedidoProdutoRepository;
+            _clienteRepository = clienteRepository;
         }
 
         public async Task<IActionResult> Index()
@@ -41,30 +48,31 @@ namespace Confeitaria.App.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(PedidoViewModel pedidoViewModel)
+        public async Task<IActionResult> Create(PedidoViewModel pedidoViewModel, int quantidade)
         {
             if (!ModelState.IsValid) return View(pedidoViewModel);
 
             pedidoViewModel.DataPedido = DateTime.Now;
             
             var pedido = _mapper.Map<Pedido>(pedidoViewModel);
-            
-            //foreach (var produto in ProdutosController._carrinho)
-            //{
-            //    var pedidoProduto = new PedidoProduto
-            //    {
-            //        PedidoId = pedido.Id,
-            //        ProdutoId = produto.Id,
-            //        Quantidade = produto.Quantidade,
-            //    };
-            //    pedido.PedidoProdutos.Add(pedidoProduto);
-            //}
 
             await _pedidoRepository.Adicionar(pedido);
 
+            foreach (var produto in ProdutosController._carrinho)
+            {
+                var pedidoProduto = new PedidoProduto
+                {
+                    PedidoId = pedido.Id,
+                    ProdutoId = produto.Id,
+                    Quantidade = produto.Quantidade
+                };
+                
+                await _pedidoProdutoRepository.Adicionar(pedidoProduto);
+            }
+
             ProdutosController._carrinho.Clear();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("PedidoConcluido", new { id = pedido.Id });
         }
 
         public async Task<IActionResult> Edit(Guid id)
@@ -138,6 +146,22 @@ namespace Confeitaria.App.Controllers
             return Json(new { sucess = true, url });
         }
 
+        public async Task<IActionResult> PedidoConcluido(Guid id)
+        {
+            var pedido = await _pedidoRepository.ObterPedidoCliente(id);
+            if (pedido == null) return NotFound();
+
+            var endereco = await _enderecoPedidoRepository.ObterEnderecoPorPedido(id);
+
+            var pedidoViewModel = _mapper.Map<PedidoViewModel>(pedido);
+
+            ViewBag.Endereco = endereco.Cep;
+            ViewBag.NomeCliente = pedido.Cliente.Nome;
+            ViewBag.EmailCliente = pedido.Cliente.Email;
+            return View(pedidoViewModel);
+        }
+
+
         public async Task<IActionResult> ObterEndereco(Guid id)
         {
             var pedido = await ObterPedidoEndereco(id);
@@ -146,6 +170,7 @@ namespace Confeitaria.App.Controllers
 
             return PartialView("_EnderecoDetails", pedido);
         }
+
         private async Task<PedidoViewModel> ObterPedidoEndereco(Guid id)
         {
             return _mapper.Map<PedidoViewModel>(await _pedidoRepository.ObterPedidoEndereco(id));

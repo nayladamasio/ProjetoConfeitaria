@@ -5,6 +5,8 @@ namespace Confeitaria.Business.Interfaces
     public interface IPedidoRepository : IBaseRepository<Pedido>
     {
         Task<Pedido> ObterPedidoEndereco(Guid id);
+        Task<Pedido> ObterPedidoCliente(Guid id);
+
         //Task<Pedido> ObterPedidoProdutos(Guid id);
     }
 }

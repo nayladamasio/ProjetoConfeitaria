@@ -10,6 +10,7 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\editproduto.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\forgotpassword.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pedidoconcluido.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\register.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\sobrenos.css" />
   </ItemGroup>
