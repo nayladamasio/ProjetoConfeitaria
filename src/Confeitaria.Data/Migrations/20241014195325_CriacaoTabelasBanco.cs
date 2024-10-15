@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Confeitaria.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class CriacaoDasTabelas : Migration
+    public partial class CriacaoTabelasBanco : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -24,6 +24,20 @@ namespace Confeitaria.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TB_CLIENTES", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TB_FALECONOSCO",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nome = table.Column<string>(type: "varchar(100)", nullable: false),
+                    Email = table.Column<string>(type: "varchar(100)", nullable: false),
+                    Mensagem = table.Column<string>(type: "varchar(Max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TB_FALECONOSCO", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -54,6 +68,7 @@ namespace Confeitaria.Data.Migrations
                     DataPedido = table.Column<DateTime>(type: "datetime2", nullable: false),
                     HorarioEntrega = table.Column<int>(type: "int", nullable: false),
                     FormaPagamento = table.Column<int>(type: "int", nullable: false),
+                    TotalDoPedido = table.Column<string>(type: "varchar(30)", nullable: false),
                     ClienteId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -135,6 +150,9 @@ namespace Confeitaria.Data.Migrations
         {
             migrationBuilder.DropTable(
                 name: "TB_ENDERECOPEDIDO");
+
+            migrationBuilder.DropTable(
+                name: "TB_FALECONOSCO");
 
             migrationBuilder.DropTable(
                 name: "TB_PEDIDOSPRODUTOS");

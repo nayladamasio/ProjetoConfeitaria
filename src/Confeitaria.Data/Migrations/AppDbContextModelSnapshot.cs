@@ -93,6 +93,29 @@ namespace Confeitaria.Data.Migrations
                     b.ToTable("TB_ENDERECOPEDIDO", (string)null);
                 });
 
+            modelBuilder.Entity("Confeitaria.Business.Models.FaleConosco", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Mensagem")
+                        .IsRequired()
+                        .HasColumnType("varchar(Max)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TB_FALECONOSCO", (string)null);
+                });
+
             modelBuilder.Entity("Confeitaria.Business.Models.Pedido", b =>
                 {
                     b.Property<Guid>("Id")
@@ -113,6 +136,10 @@ namespace Confeitaria.Data.Migrations
 
                     b.Property<int>("HorarioEntrega")
                         .HasColumnType("int");
+
+                    b.Property<string>("TotalDoPedido")
+                        .IsRequired()
+                        .HasColumnType("varchar(30)");
 
                     b.HasKey("Id");
 

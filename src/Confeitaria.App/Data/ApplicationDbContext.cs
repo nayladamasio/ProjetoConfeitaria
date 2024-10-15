@@ -7,5 +7,6 @@ namespace Confeitaria.App.Data
     public class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+        public DbSet<Confeitaria.App.ViewModels.FaleConoscoViewModel> FaleConoscoViewModel { get; set; }
     }
 }

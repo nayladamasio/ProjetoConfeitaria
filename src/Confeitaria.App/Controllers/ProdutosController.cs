@@ -226,19 +226,6 @@ namespace Confeitaria.App.Controllers
 
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> AdicionarAoCarrinho(Guid id)
-        //{
-        //    var produto = await _produtoRepository.ObterPorID(id);
-        //    if (produto == null) return NotFound();
-        //    var produtoViewModel = _mapper.Map<ProdutoViewModel>(produto);
-
-        //        _carrinho.Add(produtoViewModel);
-        //    return RedirectToAction("Carrinho");
-
-        //}
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult AtualizarCarrinho(Guid produtoId, int quantidade)

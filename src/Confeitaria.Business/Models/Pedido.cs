@@ -8,6 +8,7 @@ namespace Confeitaria.Business.Models
         public DateTime DataPedido { get; set; } 
         public Horario HorarioEntrega { get; set; }
         public FormaPagamento FormaPagamento { get; set; }
+        public decimal TotalDoPedido { get; set; }
 
         // Relacionamento
         public Cliente Cliente { get; set; }

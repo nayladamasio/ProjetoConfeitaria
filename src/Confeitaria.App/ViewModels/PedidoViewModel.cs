@@ -22,6 +22,9 @@ namespace Confeitaria.App.ViewModels
         [DisplayName("Forma de Pagamento")]
         public FormaPagamento FormaPagamento { get; set; }
 
+        [DisplayName("Total")]
+        public decimal TotalDoPedido { get; set; }
+
         // Relacionamento
         public ClienteViewModel Cliente { get; set; }
         public EnderecoPedidoViewModel Endereco { get; set; }

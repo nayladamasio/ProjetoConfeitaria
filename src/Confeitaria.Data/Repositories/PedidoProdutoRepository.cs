@@ -2,7 +2,6 @@
 using Confeitaria.Business.Models;
 using Confeitaria.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 
 namespace Confeitaria.Data.Repositories
 {

@@ -23,7 +23,6 @@
     padding-top: 20px;
 }
 
-
 .box-info {
     border: solid #dadada 2px;
     border-radius: 4px;
@@ -54,6 +53,7 @@ li{
     text-decoration: none;
     font-size: 35px;
     margin-top: 50px;
+    margin-left: 75px;
     display: flex;
     justify-content: center;
 }

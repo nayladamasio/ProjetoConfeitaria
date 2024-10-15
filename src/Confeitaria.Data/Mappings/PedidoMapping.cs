@@ -10,8 +10,8 @@ namespace Confeitaria.Data.Mappings
         {
             builder.HasKey(p => p.Id);
 
-            //builder.Property(p => p.QuantProduto)
-            //    .IsRequired();
+            builder.Property(p => p.TotalDoPedido)
+                .HasColumnType("varchar(30)");
 
             // relacionamento
             builder.HasOne(p => p.Cliente)

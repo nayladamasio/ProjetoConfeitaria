@@ -32,16 +32,14 @@
                             <td>
                                 <form asp-action="AtualizarCarrinho" asp-controller="Produtos" method="post" class="input-number">
                                     <input type="hidden" name="produtoId" value="@produto.Id" />
-                                    <button type="button" onclick="decrement()">-</button>
+                                    <button type="button" class="fw-bold fs-1 pb-5" onclick="decrement()">-</button>
                                     <input type="number" name="quantidade" value="@produto.Quantidade" min="1" />
-                                    <button type="button" onclick="increment()">+</button>
+                                    <button type="button" class="fw-bold fs-1 pb-5" onclick="increment()">+</button>
                                 </form>
-                                @*        <input asp-for="@produto.Quantidade" value="@produto.Quantidade" /> *@
                             </td>
                             <td>
                                 @(produto.Valor * produto.Quantidade)
                             <td>
-                                    @* <a asp-action="Index" asp-controller="Produtos" class="fs-2  bi bi-trash i-trash"></a> *@
                                 <form asp-action="RemoverdoCarrinho" asp-controller="Produtos" asp-route-id="@produto.Id" method="post">
                                     <input type="hidden" name="produtoId" value="@produto.Id" />
                                     <button type="submit" class="btn i-trash fs-2  bi bi-trash"></button>

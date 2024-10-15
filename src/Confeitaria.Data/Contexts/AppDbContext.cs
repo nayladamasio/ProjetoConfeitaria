@@ -12,6 +12,7 @@ namespace Confeitaria.Data.Contexts
         public DbSet<EnderecoPedido> PedidosEndereco { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<PedidoProduto> PedidoProdutos { get; set; }
+        public DbSet<FaleConosco> FaleConosco { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

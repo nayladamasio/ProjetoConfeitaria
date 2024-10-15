@@ -17,7 +17,6 @@ namespace Confeitaria.App.ViewModels
 
         [DisplayName("Descrição:")]
         [Required(ErrorMessage = "A descrição do produto é obrigatória")]
-        [StringLength(100, ErrorMessage = "A descrição do produto deve ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string Descricao { get; set; }
 
         [DisplayName("Imagem do Produto:")]

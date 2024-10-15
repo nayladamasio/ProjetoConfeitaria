@@ -27,6 +27,7 @@ builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddScoped<IEnderecoPedidoRepository, EnderecoPedidoRepository>();
 builder.Services.AddScoped<IPedidoProdutoRepository, PedidoProdutoRepository>();
+builder.Services.AddScoped<IFaleConoscoRepository, FaleConoscoRepository>();
 
 builder.Services.AddControllersWithViews();
 

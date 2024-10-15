@@ -12,6 +12,7 @@ namespace Confeitaria.App.AutoMapper
             CreateMap<Pedido, PedidoViewModel>().ReverseMap();
             CreateMap<EnderecoPedido, EnderecoPedidoViewModel>().ReverseMap();
             CreateMap<Produto, ProdutoViewModel>().ReverseMap();
+            CreateMap<FaleConosco, FaleConoscoViewModel>().ReverseMap();
         }
     }
 }
