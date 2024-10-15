@@ -21,5 +21,8 @@ namespace Confeitaria.App.ViewModels
         [Required(ErrorMessage = "O campo Mensagem é obrigatório")]
         public string Mensagem { get; set; }
 
+        [ScaffoldColumn(false)]
+        public DateTime DataEnvio { get; set; }
+
     }
 }

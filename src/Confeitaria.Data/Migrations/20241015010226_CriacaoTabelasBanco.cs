@@ -33,7 +33,8 @@ namespace Confeitaria.Data.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Nome = table.Column<string>(type: "varchar(100)", nullable: false),
                     Email = table.Column<string>(type: "varchar(100)", nullable: false),
-                    Mensagem = table.Column<string>(type: "varchar(Max)", nullable: false)
+                    Mensagem = table.Column<string>(type: "varchar(Max)", nullable: false),
+                    DataEnvio = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -52,7 +53,8 @@ namespace Confeitaria.Data.Migrations
                     Valor = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Categoria = table.Column<int>(type: "int", nullable: false),
                     Disponivel = table.Column<bool>(type: "bit", nullable: false),
-                    DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DataAlteracao = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -13,12 +13,14 @@ namespace Confeitaria.Business.Models
         public Categoria Categoria { get; set; }
         public bool Disponivel { get; set; }
         public DateTime DataCadastro { get; set; }
+        public DateTime DataAlteracao { get; set; }
 
         public IEnumerable<PedidoProduto> PedidoProdutos { get; set; }
 
         public Produto()
         {
             DataCadastro = DateTime.Now;
+            DataAlteracao = DateTime.Now;
         }
 
 

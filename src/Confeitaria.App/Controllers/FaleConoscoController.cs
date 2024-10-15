@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Confeitaria.App.Data;
+﻿using AutoMapper;
 using Confeitaria.App.ViewModels;
 using Confeitaria.Business.Interfaces;
-using Confeitaria.Data.Repositories;
-using AutoMapper;
 using Confeitaria.Business.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Confeitaria.App.Controllers
 {
@@ -26,14 +18,15 @@ namespace Confeitaria.App.Controllers
             _mapper = mapper;
         }
 
-        public async Task<IActionResult> Index()
-        {
-            return View(_mapper.Map<IEnumerable<FaleConoscoViewModel>>(await _faleConoscoRepository.ObterTodos()));
-        }
-
-        public IActionResult FaleConosco2()
+        public IActionResult Index()
         {
             return View();
+        }
+
+        public async Task<IActionResult> TBFaleConosco()
+        {
+            return View(_mapper.Map<IEnumerable<FaleConoscoViewModel>>(await _faleConoscoRepository.ObterTodos()));
+
         }
 
         public async Task<IActionResult> Details(Guid id)
@@ -57,9 +50,13 @@ namespace Confeitaria.App.Controllers
         {
             if (!ModelState.IsValid) return View(faleConoscoViewModel);
 
+            faleConoscoViewModel.DataEnvio = DateTime.Now;
+
             await _faleConoscoRepository.Adicionar(_mapper.Map<FaleConosco>(faleConoscoViewModel));
 
-            return RedirectToAction("FaleConosco2");
+            ViewBag.Sucesso = "true";
+
+            return RedirectToAction("Index");
 
         }
 
@@ -115,7 +112,7 @@ namespace Confeitaria.App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            if (ObterMensagem(id) == null) return NotFound();
+            if (_faleConoscoRepository == null) return NotFound();
 
             await _faleConoscoRepository.Remover(id);
 

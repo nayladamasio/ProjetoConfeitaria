@@ -41,6 +41,9 @@ namespace Confeitaria.App.ViewModels
         [ScaffoldColumn(false)]
         public DateTime DataCadastro { get; set; }
 
+        [ScaffoldColumn(false)]
+        public DateTime DataAlteracao { get; set; }
+
         public int Quantidade { get; set; }
 
         public PedidoViewModel Pedido { get; set; }

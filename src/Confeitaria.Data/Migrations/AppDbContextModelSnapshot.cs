@@ -17,7 +17,7 @@ namespace Confeitaria.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.8")
+                .HasAnnotation("ProductVersion", "8.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -99,6 +99,9 @@ namespace Confeitaria.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("DataEnvio")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("varchar(100)");
@@ -174,6 +177,9 @@ namespace Confeitaria.Data.Migrations
 
                     b.Property<int>("Categoria")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("DataAlteracao")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DataCadastro")
                         .HasColumnType("datetime2");

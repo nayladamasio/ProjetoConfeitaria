@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Confeitaria.App.Migrations
 {
     /// <inheritdoc />
-    public partial class CriacaoDasTabelasIdentity : Migration
+    public partial class CriacaoTabelasIdentity : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -48,6 +48,21 @@ namespace Confeitaria.App.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FaleConoscoViewModel",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nome = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Mensagem = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DataEnvio = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FaleConoscoViewModel", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -213,6 +228,9 @@ namespace Confeitaria.App.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "FaleConoscoViewModel");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
