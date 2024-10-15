@@ -22,9 +22,9 @@
                         <th>Valor Total</th>
                     </tr>
                 </thead>
+                <tbody>
                 @foreach (var produto in Model)
                 {
-                    <tbody>
                         <tr>
                             <td> <img src="~/img/@produto.Imagem" class="w-25" /></td>
                             <td>@produto.Nome</td>
@@ -32,9 +32,9 @@
                             <td>
                                 <form asp-action="AtualizarCarrinho" asp-controller="Produtos" method="post" class="input-number">
                                     <input type="hidden" name="produtoId" value="@produto.Id" />
-                                    <button type="button" class="fw-bold fs-1 pb-5" onclick="decrement()">-</button>
-                                    <input type="number" name="quantidade" value="@produto.Quantidade" min="1" />
-                                    <button type="button" class="fw-bold fs-1 pb-5" onclick="increment()">+</button>
+                                    <button type="button" class="fw-bold fs-1 pb-5" onclick="decrement(this)">-</button>
+                                    <input type="number" name="quantidade" value="@produto.Quantidade" min="1" onchange="this.form.submit()" />
+                                    <button type="button" class="fw-bold fs-1 pb-5" onclick="increment(this)">+</button>
                                 </form>
                             </td>
                             <td>
@@ -46,15 +46,20 @@
                                 </form>
                             </td>
                         </tr>
-                    </tbody>
 
                     <script src="~/js/atualizarQuantidade.js"></script>
                 }
+                </tbody>
             </table>
             <p class="text-black p-carrinho">Total do pedido: <strong class="ms-2"> @Model.Sum(p => p.Valor * p.Quantidade) </strong></p>
+
+   @*          <form asp-action="Create" asp-controller="Pedidos" method="post">
+                <input type="hidden" name="TotalDoPedido" value="@Model.Sum(p => p.Valor * p.Quantidade)" />
+                <button type="submit" class="btn a-cont"> Finalizar Pedido</button> *@
+             @*    </form> *@
             <a asp-action="Create" asp-controller="Pedidos" class="a-cont text-decoration-none">Finalizar Pedido</a>
 
-            <div class="">
+            <div>
                 <a asp-action="Index" asp-controller="Produtos" class="a-cont text-decoration-none">Contiuar comprando</a>
             </div>
         }

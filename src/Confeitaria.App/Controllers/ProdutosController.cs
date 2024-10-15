@@ -207,7 +207,7 @@ namespace Confeitaria.App.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AdicionarAoCarrinho(Guid id, int quantidade)
+        public async Task<IActionResult> AdicionarAoCarrinho(Guid id)
         {
             var produto = await _produtoRepository.ObterPorID(id);
             if (produto == null) return NotFound();
@@ -215,11 +215,11 @@ namespace Confeitaria.App.Controllers
             var produtocarrinho = _carrinho.FirstOrDefault(p => p.Id == id);
             if (produtocarrinho != null)
             {
-                produtocarrinho.Quantidade += quantidade;
+                produtocarrinho.Quantidade++;
             }
             else
             {
-                produtoViewModel.Quantidade = quantidade;
+                produtoViewModel.Quantidade = 1;
                 _carrinho.Add(produtoViewModel);
             }
             return RedirectToAction("Carrinho");

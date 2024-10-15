@@ -1,12 +1,12 @@
-﻿function increment() {
-    var input = document.querySelector("input[name='quantidade']");
+﻿function increment(button) {
+    var input = button.previousElementSibling;
     input.value = parseInt(input.value) + 1;
     input.form.submit();
 }
 
-function decrement() {
-    var input = document.querySelector("input[name='quantidade']");
-    if (input.value > 1) {
+function decrement(button) {
+    var input = button.nextElementSibling;
+    if (parseInt(input.value) > 1) {
         input.value = parseInt(input.value) - 1;
         input.form.submit();
     }

@@ -53,6 +53,8 @@ namespace Confeitaria.App.Controllers
             if (!ModelState.IsValid) return View(pedidoViewModel);
 
             pedidoViewModel.DataPedido = DateTime.Now;
+            pedidoViewModel.TotalDoPedido = ProdutosController._carrinho.Sum(p => p.Valor * p.Quantidade);
+
             
             var pedido = _mapper.Map<Pedido>(pedidoViewModel);
 

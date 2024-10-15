@@ -3,6 +3,7 @@ using Confeitaria.App.ViewModels;
 using Confeitaria.Business.Interfaces;
 using Confeitaria.Business.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 
 namespace Confeitaria.App.Controllers
 {
@@ -54,50 +55,9 @@ namespace Confeitaria.App.Controllers
 
             await _faleConoscoRepository.Adicionar(_mapper.Map<FaleConosco>(faleConoscoViewModel));
 
-            ViewBag.Sucesso = "true";
-
             return RedirectToAction("Index");
 
         }
-
-        //public async Task<IActionResult> Edit(Guid id)
-        //{
-        //    var faleConoscoViewModel = await _faleConoscoRepository.ObterPorId(id);
-        //    if (faleConoscoViewModel == null) return NotFound();
-        //    return View(faleConoscoViewModel);
-        //}
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Edit(Guid id, FaleConoscoViewModel faleConoscoViewModel)
-        //{
-        //    if (id != faleConoscoViewModel.Id)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            _context.Update(faleConoscoViewModel);
-        //            await _context.SaveChangesAsync();
-        //        }
-        //        catch (DbUpdateConcurrencyException)
-        //        {
-        //            if (!FaleConoscoViewModelExists(faleConoscoViewModel.Id))
-        //            {
-        //                return NotFound();
-        //            }
-        //            else
-        //            {
-        //                throw;
-        //            }
-        //        }
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(faleConoscoViewModel);
-        //}
 
         public async Task<IActionResult> Delete(Guid id)
         {
@@ -116,7 +76,7 @@ namespace Confeitaria.App.Controllers
 
             await _faleConoscoRepository.Remover(id);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("TBFaleConosco");
         }
 
         private async Task<FaleConoscoViewModel> ObterMensagem(Guid id)

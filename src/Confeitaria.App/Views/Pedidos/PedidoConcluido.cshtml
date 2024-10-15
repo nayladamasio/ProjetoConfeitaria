@@ -19,7 +19,7 @@
     <div class="box-info col-md-12">
         <h1 class="mb-3">Informações do Pedido</h1>
         <ul>
-            <li><strong>Total:</strong> @ViewBag.NomeCliente</li>
+            <li><strong>Total:</strong> @Model.TotalDoPedido.ToString("F2")</li>
             <li><strong>Data do pedido:</strong> @Model.DataPedido.ToString("dd/MM/yyy")</li>
             <li><strong>Data da entrega:</strong> @Model.DataEntrega.ToString("dd/MM/yyy")</li>
             <li><strong>Forma de Pagamento:</strong> @Model.FormaPagamento</li>
