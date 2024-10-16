@@ -136,7 +136,8 @@ namespace Confeitaria.App.Controllers
             atualizar.Valor = produtoViewModel.Valor;
             atualizar.Categoria = produtoViewModel.Categoria;
             atualizar.Disponivel = produtoViewModel.Disponivel;
-            atualizar.DataCadastro = produtoViewModel.DataCadastro;
+            //atualizar.DataCadastro = produtoViewModel.DataCadastro;
+            atualizar.DataAlteracao = DateTime.Now;
 
             await _produtoRepository.Alterar(_mapper.Map<Produto>(atualizar));
 

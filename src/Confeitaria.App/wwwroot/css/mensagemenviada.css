@@ -1,0 +1,32 @@
+﻿.box {
+    background-color: white;
+    height: auto;
+    width: 85%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 120px;
+    padding: 20px;
+}
+
+.box2 {
+    background-color: white;
+    border: solid #f7ebec 5px;
+    border-radius: 4px;
+    width: 80%;
+    margin: 90px auto;
+    margin:
+}
+
+.a-link:hover {
+    color: black;
+}
+
+.a-link {
+    color: #e48f9b;
+    text-decoration: none;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

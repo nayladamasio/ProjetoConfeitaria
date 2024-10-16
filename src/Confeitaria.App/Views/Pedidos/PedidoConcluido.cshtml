@@ -9,16 +9,16 @@
 
 <div class="box">
     <div class="box2 ">
-        <p class="fw-bold titulo">Seu pedido foi realizado com sucesso.</p>
-        <p class="fs-3">Em breve você receberá um e-mail no endereço <strong>@ViewBag.EmailCliente</strong> com todos os detalhes do pedido.</p>
+        <p class="fw-bold titulo text-center">Seu pedido foi realizado com sucesso.</p>
+        <p class="fs-3 text-center">Em breve você receberá um e-mail no endereço <strong>@ViewBag.EmailCliente</strong> com todos os detalhes do pedido.</p>
 
-        <div class="alert alert-success w-50 alerta" role="alert">
+        <div class="alert alert-success alerta" role="alert">
             <h1 class="bi bi-check2-circle"> Pedido Confirmado</h1>
         </div>
     </div>
     <div class="box-info col-md-12">
-        <h1 class="mb-3">Informações do Pedido</h1>
-        <ul>
+        <h1 class="mb-3 fw-bold text-center mt-4">Informações do Pedido</h1>
+        <ul class="ul-info">
             <li><strong>Total:</strong> @Model.TotalDoPedido.ToString("F2")</li>
             <li><strong>Data do pedido:</strong> @Model.DataPedido.ToString("dd/MM/yyy")</li>
             <li><strong>Data da entrega:</strong> @Model.DataEntrega.ToString("dd/MM/yyy")</li>
@@ -26,5 +26,6 @@
             <li><strong>CEP da Entrega:</strong> @ViewBag.Endereco</li>
         </ul>
     </div>
-    <a asp-action="Index" asp-controller="Home" class="a-link">Voltar para a página inicial</a>
-</div>
+
+        <a asp-action="Index" asp-controller="Home" class="a-link">Ir para a página inicial</a>
+</div>  

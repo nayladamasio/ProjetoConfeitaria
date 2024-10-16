@@ -1,0 +1,26 @@
+﻿<link rel="stylesheet" href="~/css/mensagemenviada.css" asp-append-version="true" />
+
+
+@model Confeitaria.App.ViewModels.FaleConoscoViewModel
+
+@{
+    ViewData["Title"] = "Mensagem Enviada";
+}
+
+
+<div class="box shadow-lg">
+    <div class="box2">
+        <p class="fw-bold titulo text-center mt-4">Olá, sua mensagem foi enviada com sucesso <i class="bi bi-check-lg mt4"></i></p>
+        <p class="fs-3 text-center mb-4">Agradecemos por entrar em contato conosco, nossa equipe retornará o mais breve possível! </p>
+
+        <a asp-action="Index" asp-controller="Home" class="a-link">Ir para a página inicial</a>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}

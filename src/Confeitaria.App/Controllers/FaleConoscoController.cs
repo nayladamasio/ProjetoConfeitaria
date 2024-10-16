@@ -18,13 +18,8 @@ namespace Confeitaria.App.Controllers
             _faleConoscoRepository = faleConoscoRepository;
             _mapper = mapper;
         }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public async Task<IActionResult> TBFaleConosco()
+       
+        public async Task<IActionResult> Index()
         {
             return View(_mapper.Map<IEnumerable<FaleConoscoViewModel>>(await _faleConoscoRepository.ObterTodos()));
 
@@ -55,11 +50,16 @@ namespace Confeitaria.App.Controllers
 
             await _faleConoscoRepository.Adicionar(_mapper.Map<FaleConosco>(faleConoscoViewModel));
 
-            return RedirectToAction("Index");
+            return RedirectToAction("MensagemEnviada");
 
         }
 
-        public async Task<IActionResult> Delete(Guid id)
+        public IActionResult MensagemEnviada()
+        {
+            return View();
+        }
+
+            public async Task<IActionResult> Delete(Guid id)
         {
             var faleConoscoViewModel = await ObterMensagem(id);
 
@@ -76,7 +76,7 @@ namespace Confeitaria.App.Controllers
 
             await _faleConoscoRepository.Remover(id);
 
-            return RedirectToAction("TBFaleConosco");
+            return RedirectToAction("Index");
         }
 
         private async Task<FaleConoscoViewModel> ObterMensagem(Guid id)

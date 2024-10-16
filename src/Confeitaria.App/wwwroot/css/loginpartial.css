@@ -1,0 +1,15 @@
+﻿.a-admin{
+    text-decoration: none;
+    color: black;
+    text-transform: capitalize;
+}
+
+.b-sair{
+   align-items: center;
+}
+
+.li-sair{
+    display:flex;
+    justify-content: center;
+    
+}

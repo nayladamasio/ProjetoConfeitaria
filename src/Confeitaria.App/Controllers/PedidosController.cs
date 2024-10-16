@@ -79,7 +79,7 @@ namespace Confeitaria.App.Controllers
 
         public async Task<IActionResult> Edit(Guid id)
         {
-            var pedidoViewModel = await ObterEndereco(id);
+            var pedidoViewModel = await ObterPedidoEndereco(id);
 
             if (pedidoViewModel == null) return NotFound();
 

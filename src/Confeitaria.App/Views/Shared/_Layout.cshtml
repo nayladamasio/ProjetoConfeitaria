@@ -32,7 +32,7 @@
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <button class="btn-menu dropdown-toggle-split text-uppercase fw-light" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn-menu dropdown-toggle-split text-uppercase fw-light ms-2" data-bs-toggle="dropdown" aria-expanded="false">
                                 Menu
                             </button>
                             <div class="dropdown-menu rounded-5 fs-3">
@@ -51,10 +51,10 @@
                             <a class="nav-link text-secundary" asp-area="" asp-controller="Home" asp-action="Index">Receitas</a>
                             </li> *@
                         <li class="nav-item">
-                            <a class="nav-link text-secundary" asp-area="" asp-controller="Home" asp-action="Sobrenos">Sobre Nós</a>
+                            <a class="nav-link text-secundary ms-2" asp-area="" asp-controller="Home" asp-action="Sobrenos">Sobre Nós</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-secundary" asp-area="" asp-controller="FaleConosco" asp-action="Index">Fale Conosco</a>
+                            <a class="nav-link text-secundary ms-2" asp-area="" asp-controller="FaleConosco" asp-action="Create">Fale Conosco</a>
                         </li>
                     </ul>
 
@@ -62,8 +62,9 @@
                         <button type="button" class="btn-menu dropdown-toggle text-uppercase fs-3" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                             <i class="fa fa-user-o fs-3" aria-hidden="true"></i>
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-lg-end rounded-5 fs-4 text-uppercase">
+                        <ul class="dropdown-menu dropdown-menu-lg-end rounded-5 fs-4">
                             <li><partial name="_LoginPartial" /></li>
+                            @* <li> <a asp-controller="Home" asp-action="AreaAdmin" class=""></a></li> *@
                         </ul>
                     </div>
                     <a asp-controller="Produtos" asp-action="Carrinho" class="bi bi-cart3 i-cart"></a>

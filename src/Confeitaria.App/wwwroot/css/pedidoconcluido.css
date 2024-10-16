@@ -14,35 +14,34 @@
 }
 
 .box2 {
-    background-color: #ebebeb;
-    border: solid #dadada 2px;
+    border: solid #f7ebec 5px;
     border-radius: 4px;
-    width: 70%;
-    margin: 40px 200px 20px 200px;
-    padding-left: 15px;
-    padding-top: 20px;
+    width: 80%;
+    margin: 50px auto;
+    padding: 30px;
 }
 
 .box-info {
-    border: solid #dadada 2px;
+    border: solid #f7ebec 5px;
     border-radius: 4px;
-    width: 70%;
-    margin: 0px 200px 20px 200px;
-    padding-left: 15px;
-    padding-top: 20px;
+    width: 60%;
+    margin: 50px auto;
 }
 .alerta {
-    padding: 7px 0px 0px 0px;
+    width: 40%;
+    padding: px;
     display: flex;
     justify-content: center;
-    margin: 25px 150px 25px 210px;
+    margin: 40px auto 10px auto;
+}
 
+.ul-info {
+    margin: 4%;
 }
 
 li{
     font-size: 35px;
 }
-
 
 .a-link:hover {
     color: black;
@@ -52,8 +51,6 @@ li{
     color: #e48f9b;
     text-decoration: none;
     font-size: 35px;
-    margin-top: 50px;
-    margin-left: 75px;
     display: flex;
     justify-content: center;
 }
