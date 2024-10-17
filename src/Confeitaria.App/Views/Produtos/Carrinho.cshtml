@@ -15,36 +15,36 @@
             <table class="table table-borderless text-secondary">
                 <thead>
                     <tr>
-                        <th>Produto</th>
-                        <th>Nome</th>
-                        <th>Valor Unitário</th>
-                        <th>Quantidade</th>
-                        <th>Valor Total</th>
+                        <th class="text-center">Produto</th>
+                        <th class="text-center">Nome</th>
+                        <th class="text-center">Valor Unitário</th>
+                        <th class="text-center">Quantidade</th>
+                        <th class="text-center">Valor Total</th>
                     </tr>
                 </thead>
                 <tbody>
                 @foreach (var produto in Model)
                 {
                         <tr>
-                            <td> <img src="~/img/@produto.Imagem" class="w-50" /></td>
-                            <td>@produto.Nome</td>
-                            <td>@produto.Valor</td>
+                            <td class="text-center"> <img src="~/img/@produto.Imagem" class="w-50" /></td>
+                            <td class="text-center">@produto.Nome</td>
+                            <td class="text-center">@produto.Valor</td>
                             <td>
-                                <form asp-action="AtualizarCarrinho" asp-controller="Produtos" method="post" class="input-number">
+                                <form asp-action="AtualizarCarrinho" asp-controller="Produtos" method="post" class="input-number ms-2">
                                     <input type="hidden" name="produtoId" value="@produto.Id" />
-                                    <button type="button" class="fw-bold fs-1 pb-5" onclick="decrement(this)">-</button>
+                                    <button type="button" class="fw-bold fs-1 mb-4" onclick="decrement(this)">-</button>
                                     <input type="number" name="quantidade" value="@produto.Quantidade" min="1" onchange="this.form.submit()" />
-                                    <button type="button" class="fw-bold fs-1 pb-5" onclick="increment(this)">+</button>
+                                    <button type="button" class="fw-bold fs-1 mb-4" onclick="increment(this)">+</button>
                                 </form>
                             </td>
-                            <td>
+                            <td class="text-center">
                                 @(produto.Valor * produto.Quantidade)
-                            <td>
+                            </td>
+                            <td class="text-center">
                                 <form asp-action="RemoverdoCarrinho" asp-controller="Produtos" asp-route-id="@produto.Id" method="post">
                                     <input type="hidden" name="produtoId" value="@produto.Id" />
                                     <button type="submit" class="btn i-trash fs-2  bi bi-trash"></button>
                                 </form>
-                            </td>
                         </tr>
 
                     <script src="~/js/atualizarQuantidade.js"></script>

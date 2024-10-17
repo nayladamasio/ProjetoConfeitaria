@@ -12,6 +12,7 @@
             <i class="fa fa-bars i-barra"></i>
         </button>
         <ul class="dropdown-menu p-3 ps-4" aria-labelledby="dropdownMenuButton1">
+            <li><a asp-action="TbProdutos" asp-route-id="@Model.Id">Tabela Produtos</a></li>
             @* <li class="d-flex"><a asp-action="Edit" asp-route-id="@Model.Id" class="fa fa-pencil btn border"></a></li> *@
             <li><a asp-action="Edit" asp-route-id="@Model.Id">Editar</a></li>
             @* <li class="d-flex"><a asp-action="Details" asp-route-id="@Model.Id" class="fa fa-info-circle btn border"></a></li> *@

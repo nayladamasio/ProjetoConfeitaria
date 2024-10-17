@@ -35,3 +35,8 @@ i {
 .a-link:hover{
     color: black;
 }
+
+.h1-text {
+    color: #e48f9b;
+    font-weight: bold;
+}

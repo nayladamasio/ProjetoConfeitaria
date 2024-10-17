@@ -1,0 +1,30 @@
+﻿.box {
+    background-color: white;
+    height: auto;
+    width: 85%;
+    margin: auto;
+    margin-top: 33px;
+    margin-bottom: 70px;
+    padding: 20px;
+}
+
+.tb-h {
+    color: #e48f9b;
+    font-weight: bold;
+    margin-bottom: 25px;
+    margin-top: 2px;
+}
+
+.box2{
+    margin: 0 auto;
+}
+
+.a-link {
+    text-decoration: none;
+    color: #e48f9b;
+    font-size: 38px;
+}
+
+dd{
+    font-size: 45px;
+}

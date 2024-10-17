@@ -1,0 +1,69 @@
+﻿.box {
+    background-color: white;
+    height: auto;
+    width: 94%;
+    margin: auto;
+    margin-top: 33px;
+    margin-bottom: 70px;
+    padding: 45px;
+}
+
+.tb-h {
+    color: #e48f9b;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+th{
+    font-size: 32px;
+    text-align: center;
+}
+
+td {
+    font-size: 32px;
+    text-align: center;
+}
+
+.btn-details {
+    color: #e48f9b;
+    border: none;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.btn-excluir {
+    color: #e48f9b;
+    border: none;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.text-limite-nome{
+    max-width: 15ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-limite-email {
+    max-width: 40ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-limite-msg {
+    max-width: 14ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.a-link {
+    margin-left: 8px;
+    text-decoration: none;
+    color: #e48f9b;
+    font-size: 34px;
+    margin-top: 35px;
+    
+}

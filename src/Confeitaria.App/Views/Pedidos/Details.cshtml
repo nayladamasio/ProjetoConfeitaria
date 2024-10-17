@@ -35,6 +35,9 @@
             @Html.DisplayFor(model => model.FormaPagamento)
         </dd>
     </dl>
+
+    <partial name="_EnderecoDetails" />
+
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |

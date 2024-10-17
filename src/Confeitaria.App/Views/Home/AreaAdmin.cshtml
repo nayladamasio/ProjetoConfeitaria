@@ -2,48 +2,35 @@
 
 
 @{
-    ViewData["Title"] = "Area Admin";
+    ViewData["Title"] = "Área Administrador";
 }
 
-<div class="box">
+<div class="box shadow-lg">
     <div class="row">
-      
-        <div class="col-md-4">
-          
-            <ul class="nav-bar list-unstyled">
-                <li class="text-center">
-                    <p class="fs-2 fw-bolder text-uppercase p-admin" href="">
-                        Área Administrador
-                    </p>
-                </li>
-                <hr />
-                <li class="nav-item">
-                    <a class="nav-link a-link mt-4" href="">
-                        Página Inicial
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link a-link" href="">
-                        Produtos
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link a-link" href="">
-                        Clientes
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link a-link mb-4" href="">
-                        Mensagens
-                    </a>
-                </li>
-            </ul>
-            <hr />
+        <h1 class="text-uppercase text-center fw-bold mt-5">Área Administrador</h1>
+        <div class="col-md-6 mb-3 mt-5">
+            <div class="card text-center">
+                <i class="bi bi-table fs-1 mt-3"></i>
+                <a asp-controller="Produtos" asp-action="TbProdutos" class="card-title"> Produtos</a>
+            </div>
         </div>
-        <div class="col-md-8">
-           
-            <h2>Área Administrativa</h2>
-            <p>Conteúdo</p>
+        <div class="col-md-6 mb-3 mt-5">
+            <div class="card text-center">
+                <i class="bi bi-table fs-1 mt-3"></i>
+                <a asp-controller="Pedidos" asp-action="Index" class="card-title"> Pedidos</a>
+            </div>
+        </div>
+        <div class="col-md-6 mb-5 mt-5">
+            <div class="card text-center">
+                <i class="bi bi-table fs-1 mt-3"></i>
+                <a asp-controller="Clientes" asp-action="Index" class="card-title"> Clientes</a>
+            </div>
+        </div>
+        <div class="col-md-6 mb-5 mt-5">
+            <div class="card text-center">
+                <i class="bi bi-table fs-1 mt-3"></i>
+                <a asp-controller="FaleConosco" asp-action="Index" class="card-title"> Mensagens</a>
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,90 @@
+﻿<link rel="stylesheet" href="~/css/tbprodutos.css" asp-append-version="true" />
+
+@model IEnumerable<Confeitaria.App.ViewModels.ProdutoViewModel>
+
+@{
+    ViewData["Title"] = "Tabela Produtos";
+}
+
+<div class="container-fluid box">
+    <h1 class="text-uppercase text-center fs-1 tb-h">Tabela Produtos</h1>
+    <hr />
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">
+                    <p>Imagem</p>
+                </th>
+                <th class="text-center">
+                    <p>Nome</p>
+                </th>
+                <th class="text-center">
+                    <p>Descrição</p>
+                </th>
+                <th class="text-center">
+                    <p>Peso</p>
+                </th>
+                <th class="text-center">
+                    <p>Categoria</p>
+                </th>
+                <th class="text-center">
+                    <p>Disponível</p>
+                </th>
+                <th class="text-center">
+                    <p>Data Cadastro</p>
+                </th>
+                <th class="text-center">
+                    <p>Data Alteração</p>
+                </th>
+                <th class="text-center">
+                    <p>Ações</p>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center">
+                        <img src="~/img/@item.Imagem" class="tb-img" alt="ImagemProduto">
+                    </td>
+                    <td class="text-center">
+                        @item.Nome
+                    </td>
+                    <td class="text-center text-limite-descr">
+                        @item.Descricao
+                    </td>
+                    <td class="text-center">
+                        @item.Peso
+                    </td>
+                    <td class="text-center">
+                        @item.Categoria
+                    </td>
+                    <td class="text-center">
+                        @item.Disponivel
+                    </td>
+                    <td class="text-center text-limite-data">
+                        @item.DataCadastro
+                    </td>
+                    <td class="text-center text-limite-data">
+                        @item.DataAlteracao
+                    </td>
+
+
+                    <td>
+                        <a asp-action="Informacoes" asp-route-id="@item.Id" title="Editar" class="btn btn-details bi bi-pencil"></a> |
+                        <a asp-action="Informacoes" asp-route-id="@item.Id" title="Detalhes" class="btn btn-details bi bi-card-text"></a> |
+                        <a asp-action="Informacoes" asp-route-id="@item.Id" title="Excluir" class="btn btn-excluir bi bi-trash"></a>
+                    </td>
+                </tr>
+
+            }
+
+        </tbody>
+
+
+    </table>
+    <div class="text-center">
+        <a asp-controller="Home" asp-action="AreaAdmin" class="a-link">Retornar para Área do Administrador</a>
+    </div>
+</div>

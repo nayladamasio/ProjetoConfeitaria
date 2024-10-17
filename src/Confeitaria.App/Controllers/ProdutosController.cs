@@ -61,6 +61,11 @@ namespace Confeitaria.App.Controllers
 
         }
 
+        public async Task<IActionResult> TbProdutos()
+        {
+            return View(_mapper.Map<IEnumerable<ProdutoViewModel>>(await _produtoRepository.ObterTodos()));
+        }
+
         public async Task<IActionResult> Details(Guid id)
         {
             var produtoViewModel = await ObterProduto(id);

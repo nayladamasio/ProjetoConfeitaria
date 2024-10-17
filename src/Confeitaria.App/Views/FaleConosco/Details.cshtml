@@ -1,35 +1,37 @@
-﻿@model Confeitaria.App.ViewModels.FaleConoscoViewModel
+﻿<link rel="stylesheet" href="~/css/detailsfaleconosco.css" asp-append-version="true" />
+
+
+@model Confeitaria.App.ViewModels.FaleConoscoViewModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes da Mensagem";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>FaleConoscoViewModel</h4>
+<div class="container-fluid box">
+    <h1 class="text-uppercase text-center fs-1 tb-h">Detalhes da Mensagem</h1>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
+    <dl class="row text-dark">
+        <dt class = "col-sm-2 mt-3">
+            <p>Nome:</p>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-10 mt-3">
             @Html.DisplayFor(model => model.Nome)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
+        <dt class="col-sm-2 mt-3">
+            <p>E-mail:</p>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10 mt-3">
             @Html.DisplayFor(model => model.Email)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2 mt-3">
             @Html.DisplayNameFor(model => model.Mensagem)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10 mt-3">
             @Html.DisplayFor(model => model.Mensagem)
         </dd>
     </dl>
-</div>
-<div>
-    <a asp-action="Index">Back to List</a>
+    <div>
+        <a asp-action="Index" class="a-link mt-3">Retornar para página anterior</a>
+    </div>
+
 </div>
