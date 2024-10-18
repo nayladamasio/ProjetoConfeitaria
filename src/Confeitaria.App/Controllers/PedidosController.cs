@@ -27,16 +27,25 @@ namespace Confeitaria.App.Controllers
             _clienteRepository = clienteRepository;
         }
 
+        //public async Task<IActionResult> Index()
+        //{
+        //    return View(_mapper.Map<IEnumerable<PedidoViewModel>>(await _pedidoRepository.ObterTodos()));
+        //}
+
         public async Task<IActionResult> Index()
         {
-            return View(_mapper.Map<IEnumerable<PedidoViewModel>>(await _pedidoRepository.ObterTodos()));
+            var pedidos = await _pedidoRepository.ObterPedidoECliente();
+            var pedidosViewModel = _mapper.Map<IEnumerable<PedidoViewModel>>(pedidos);
+            return View(pedidosViewModel);
         }
 
         public async Task<IActionResult> Details(Guid id)
         {
-            var pedidoViewModel = await ObterPedidoEndereco(id);
+            var pedido = await _pedidoRepository.ObterPedidoCompleto(id);
 
-            if (pedidoViewModel == null) return NotFound();
+            if (pedido == null) return NotFound();
+
+            var pedidoViewModel = _mapper.Map<PedidoViewModel>(pedido);
 
             return View(pedidoViewModel);
         }
@@ -79,9 +88,11 @@ namespace Confeitaria.App.Controllers
 
         public async Task<IActionResult> Edit(Guid id)
         {
-            var pedidoViewModel = await ObterPedidoEndereco(id);
+            var pedidoViewModel = await ObterPedidoClienteEndereco(id);
 
             if (pedidoViewModel == null) return NotFound();
+
+            pedidoViewModel.Cliente = _mapper.Map<ClienteViewModel>(pedidoViewModel.Cliente);
 
             return View(pedidoViewModel);
         }
@@ -97,6 +108,17 @@ namespace Confeitaria.App.Controllers
             var pedido = _mapper.Map<Pedido>(pedidoViewModel);
 
             await _pedidoRepository.Alterar(pedido);
+
+            var cliente = await _clienteRepository.ObterPorID(pedidoViewModel.Cliente.Id);
+            if(cliente != null)
+            {
+                cliente.Nome = pedidoViewModel.Cliente.Nome;
+                cliente.Cpf = pedidoViewModel.Cliente.Cpf;
+                cliente.Email = pedidoViewModel.Cliente.Email;
+                cliente.Telefone = pedidoViewModel.Cliente.Telefone;
+
+                await _clienteRepository.Alterar(cliente);
+            } 
 
             return RedirectToAction("Index");
         }
@@ -177,9 +199,12 @@ namespace Confeitaria.App.Controllers
         {
             return _mapper.Map<PedidoViewModel>(await _pedidoRepository.ObterPedidoEndereco(id));
         }
-        //private async Task<PedidoViewModel> ObterPedidoProdutos(Guid id)
-        //{
-        //    return _mapper.Map<PedidoViewModel>(await _pedidoRepository.ObterPedidoProdutos(id));
-        //}
+
+        private async Task<PedidoViewModel> ObterPedidoClienteEndereco(Guid id)
+        {
+            return _mapper.Map<PedidoViewModel>(await _pedidoRepository.ObterPedidoClienteEndereco(id));
+        }
+       
+        
     }
 }

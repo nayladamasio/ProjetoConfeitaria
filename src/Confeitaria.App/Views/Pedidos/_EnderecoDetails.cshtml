@@ -1,13 +1,23 @@
 ﻿@model Confeitaria.App.ViewModels.PedidoViewModel
 
-<div class="pt-3">
-    <div>
-        <hr />
-        <h4>Endereço</h4>
-    </div>
+<style>
+    .btn-icon {
+        color: #e48f9b;
+        border: none;
+        font-size: 30px;
+        margin-bottom: 12px;
+    }
+
+    td, th{
+        font-size: 32px;
+        text-align: center;
+    }
+</style>
+
+<div>
     @if (Model != null)
     {
-        <table class="table">
+        <table class="table text-secondary">
             <thead>
                 <tr>
                     <th>CEP</th>
@@ -22,16 +32,16 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>@Html.DisplayFor(model => model.Endereco.Cep) @Model.Endereco.Cep</td>
-                    <td>@Html.DisplayFor(model => model.Endereco.Estado)</td>
-                    <td>@Html.DisplayFor(model => model.Endereco.Cidade)</td>
-                    <td>@Html.DisplayFor(model => model.Endereco.Bairro)</td>
-                    <td>@Html.DisplayFor(model => model.Endereco.Logradouro)</td>
-                    <td>@Html.DisplayFor(model => model.Endereco.Numero)</td>
-                    <td>@Html.DisplayFor(model => model.Endereco.Complemento)</td>
+                    <td>@Model.Endereco.Cep</td>
+                    <td>@Model.Endereco.Estado</td>
+                    <td>@Model.Endereco.Cidade</td>
+                    <td>@Model.Endereco.Bairro</td>
+                    <td>@Model.Endereco.Logradouro</td>
+                    <td class="text-center">@Model.Endereco.Numero</td>
+                    <td>@Model.Endereco.Complemento</td>
                     <td>
-                        <a asp-action="AtualizarEndereco" asp-route-id="@Model.Id" class="btn btn-outline-warning" data-modal="">
-                            <span class="fa fa-pencil"></span>
+                        <a asp-action="AtualizarEndereco" asp-route-id="@Model.Id" class="btn btn-icon" title="Editar Endereço" data-modal="">
+                            <span class="bi bi-pencil"></span>
                         </a>
                     </td>
                 </tr>

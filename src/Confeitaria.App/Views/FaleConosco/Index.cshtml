@@ -8,48 +8,44 @@
 }
 
 <div class="container-fluid box">
+    <h1 class="text-uppercase text-center fs-1 tb-h">Tabela Mensagens - Fale Conosco</h1>
+    <hr />
     <table class="table table-striped">
-    <thead>
-        <h1 class="text-uppercase text-center fs-1 tb-h">Tabela Mensagens - Fale Conosco</h1>
-        <hr/>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                Mensagem
-            </th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+        <thead>
             <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    Mensagem
+                </th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
                     <td class="text-limite-nome">
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
                     <td class="text-limite-email">
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
                     <td class="text-limite-msg">
-                    @Html.DisplayFor(modelItem => item.Mensagem)
-                </td>
-                <td>
+                        @Html.DisplayFor(modelItem => item.Mensagem)
+                    </td>
+                    <td>
                         <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes" class="btn btn-details bi bi-card-text"></a> |
                         <a asp-action="Delete" asp-route-id="@item.Id" title="Excluir" class="btn btn-excluir bi bi-trash"></a>
-                </td>
-            </tr>
-                
-        }
-            
-    </tbody>
-
-       
-</table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
     <div class="text-center">
         <a asp-controller="Home" asp-action="AreaAdmin" class="a-link">Retornar para Área do Administrador</a>
     </div>

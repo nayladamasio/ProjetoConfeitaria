@@ -1,45 +1,119 @@
-﻿@model Confeitaria.App.ViewModels.PedidoViewModel
+﻿<link href="~/css/detailspedido.css" rel="stylesheet" />
+
+
+@model Confeitaria.App.ViewModels.PedidoViewModel
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div class="container-fluid box">
+    <h1 class="tb-h mt-3 text-center">Dados do Cliente</h1>
+    <div class="row text-dark box2">
 
-<div>
-    <h4>PedidoViewModel</h4>
+    @if (Model != null)
+    {
+            <div class="col-md-6 mt-3">
+                <h1><strong>Cliente:</strong> @Model.Cliente.Nome</h1>
+            </div>
+            <div class="col-md-6 mt-3">
+                <h1><strong>CPF:</strong> @Model.Cliente.Cpf</h1>
+            </div>
+            <div class="col-md-6 mt-3">
+                <h1><strong>E-mail:</strong> <span class="text-break">@Model.Cliente.Email</span></h1>
+            </div>
+            <div class="col-md-6 mt-3">
+                <h1><strong>Telefone: </strong> @Model.Cliente.Telefone</h1>
+            </div>
+            <h1 class="tb-h mt-5 text-center">Dados do Pedido</h1>
+
+            
+            <div class="col-md-6 mt-3">
+                <h1><strong>Produtos:</strong> @Model.</h1>
+            </div>
+            <div class="col-md-6 mt-3">
+                <h1><strong>CPF:</strong> @Model.Cliente.Cpf</h1>
+            </div>
+            <div class="col-md-6 mt-3">
+                <h1><strong>E-mail:</strong> <span class="text-break">@Model.Cliente.Email</span></h1>
+            </div>
+            <div class="col-md-6 mt-3">
+                <h1><strong>Telefone: </strong> @Model.Cliente.Telefone</h1>
+            </div>
+            <h1 class="tb-h mt-5 text-center">Dados da Entrega</h1>
+
+
+            <h1 class="mt-5 tb-h">Dados do Endereço</h1>
+            <partial name="_EnderecoDetails" />
+    }
+    </div>
+    </div>
+
+
+@* 
+   
+    Telefone:
+    </dt>
+    <dd class="col-sm-4 mt-3 ms-2">
+    @Model.Cliente.Telefone
+    </dd>
+    </div>
+    *@
+@*    <table class="table text-secondary">
+    <thead>
+    <tr>
+    <th>Cliente</th>
+    <th>CPF</th>
+    <th>E-mail</th>
+    <th>Telefone</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td class="td-cliente">@Model.Cliente.Nome</td>
+    <td>@Model.Cliente.Cpf</td>
+    <td class="td-cliente">@Model.Cliente.Email</td>
+    <td>@Model.Cliente.Telefone</td>
+    </tbody>
+    </table> *@
+
+
+
+
+@*
+
+    <div>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataEntrega)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataEntrega)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataPedido)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataPedido)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HorarioEntrega)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HorarioEntrega)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FormaPagamento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FormaPagamento)
-        </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.DataEntrega)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.DataEntrega)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.DataPedido)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.DataPedido)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.HorarioEntrega)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.HorarioEntrega)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.FormaPagamento)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.FormaPagamento)
+    </dd>
     </dl>
 
     <partial name="_EnderecoDetails" />
 
-</div>
-<div>
+    </div> *@
+@* <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
-</div>
+    </div> *@

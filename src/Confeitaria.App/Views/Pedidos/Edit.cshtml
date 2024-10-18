@@ -1,52 +1,87 @@
-﻿@model Confeitaria.App.ViewModels.PedidoViewModel
+﻿<link href="~/css/editpedido.css" rel="stylesheet" />
+
+@model Confeitaria.App.ViewModels.PedidoViewModel
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>PedidoViewModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+<div class="container-fluid box">
+    <h1 class="text-uppercase text-center fs-1 tb-h">Editar Pedido</h1>
+    <form asp-action="Edit">
+        <div class="row">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
+            <h1 class="tb-h mt-3">Dados do Cliente</h1>
+            <hr />
+            <div class="form-group col-md-6 mt-3">
+                <label asp-for="Cliente.Nome" class="control-label"></label>
+                <input asp-for="Cliente.Nome" class="form-control fs-3" />
+                <span asp-validation-for="Cliente.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6 mt-3">
+                <label asp-for="Cliente.Cpf" class="control-label"></label>
+                <input asp-for="Cliente.Cpf" class="form-control fs-3 " />
+                <span asp-validation-for="Cliente.Cpf" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-8 mt-3">
+                <label asp-for="Cliente.Email" class="control-label"></label>
+                <input asp-for="Cliente.Email" class="form-control fs-3" />
+                <span asp-validation-for="Cliente.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4 mt-3">
+                <label asp-for="Cliente.Telefone" class="control-label"></label>
+                <input type="tel" asp-for="Cliente.Telefone" class="form-control fs-3" placeholder="xxxxxxxxx" />
+                <span asp-validation-for="Cliente.Telefone" class="text-danger"></span>
+            </div>
+            <h1 class="tb-h mt-5">Dados da Entrega</h1>
+            <hr />
+            <div class="form-group col-md-4 ">
                 <label asp-for="DataEntrega" class="control-label"></label>
-                <input asp-for="DataEntrega" class="form-control" />
+                <input asp-for="DataEntrega" class="form-control fs-3 text-center" type="date" value="@Model.DataEntrega.ToString("yyyy-MM-dd")" />
                 <span asp-validation-for="DataEntrega" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-grou col-md-4 text-center">
                 <label asp-for="DataPedido" class="control-label"></label>
-                <input asp-for="DataPedido" class="form-control" />
+                <input asp-for="DataPedido" class="form-control fs-3 text-center" type="date" value="@Model.DataPedido.ToString("yyyy-MM-dd")" />
                 <span asp-validation-for="DataPedido" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4 ">
                 <label asp-for="HorarioEntrega" class="control-label"></label>
-                <select asp-for="HorarioEntrega" class="form-control"></select>
+                <select asp-for="HorarioEntrega" class="form-select fs-3 text-center">
+                    <option value="1">Manhã: das 8h até 12h</option>
+                    <option value="2">Tarde: das 13h até 18h</option>
+                </select>
                 <span asp-validation-for="HorarioEntrega" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4 mt-2 ">
                 <label asp-for="FormaPagamento" class="control-label"></label>
-                <select asp-for="FormaPagamento" class="form-control"></select>
+                <select asp-for="FormaPagamento" class="form-select fs-3 text-center">
+                    <option value="1">Cartão de Crédito</option>
+                    <option value="2">Pix</option>
+                    <option value="3">Boleto</option>
+                </select>
                 <span asp-validation-for="FormaPagamento" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="form-group col-md-4 mt-2">
+                <label asp-for="TotalDoPedido" class="control-label"></label>
+                <input asp-for="TotalDoPedido" class="form-control fs-3" />
+                <span asp-validation-for="TotalDoPedido" class="text-danger"></span>
             </div>
-        </form>
-
-        <div id="EnderecoTarget">
-            <partial name="_EnderecoDetails" />
+            <div class="form-group col-md-4 mt-2">
+                <input type="submit" value="Atualizar Dados" class="btn btn-salvar mt-5" title="Atualizar" />
+            </div>
         </div>
-
+    </form>
+    <h1 class="mt-5 tb-h">Dados do Endereço</h1>
+    <hr />
+    <div id="EnderecoTarget">
+        <partial name="_EnderecoDetails" />
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="text-center">
+    <a asp-controller="Pedidos" asp-action="Index" class="a-link">Retornar para página anterior</a>
 </div>
 
 <div id="myModal" class="modal fade in">
@@ -58,7 +93,9 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
     <script>
         $(document).ready(function () {
             SetModal();

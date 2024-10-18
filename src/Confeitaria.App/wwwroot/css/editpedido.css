@@ -3,28 +3,35 @@
     height: auto;
     width: 85%;
     margin: auto;
-    margin-top: 33px;
+    margin-top: 30px;
     margin-bottom: 70px;
     padding: 20px;
+    font-size: 35px;
+    text-align: left;
 }
 
 .tb-h {
     color: #e48f9b;
     font-weight: bold;
     margin-bottom: 25px;
-    margin-top: 2px;
-}
-
-.box2{
-    margin: 0 auto;
+    margin-top: 15px;
 }
 
 .a-link {
+    margin-left: 8px;
     text-decoration: none;
     color: #e48f9b;
     font-size: 34px;
+    margin-top: 35px;
 }
 
-dd, dt{
-    font-size: 35px;
+.btn-salvar {
+    color: #e48f9b;
+    border: 1px solid;
+    font-size: 32px;
+    margin-bottom: 12px
+}
+
+input, select{
+    margin: 0 auto;
 }

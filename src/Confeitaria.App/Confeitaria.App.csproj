@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Clientes\_IndexCliente.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\detailspedido.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\editproduto.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\forgotpassword.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\pedidoconcluido.css" />
@@ -34,10 +39,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\Clientes\_IndexCliente.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Update="Views\Produtos\Carrinho.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

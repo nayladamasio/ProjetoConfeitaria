@@ -1,55 +1,61 @@
-﻿@model IEnumerable<Confeitaria.App.ViewModels.PedidoViewModel> 
+﻿<link rel="stylesheet" href="~/css/indexpedido.css" asp-append-version="true" />
+
+
+@model IEnumerable<Confeitaria.App.ViewModels.PedidoViewModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Tabela Pedidos";
 }
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DataEntrega)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataPedido)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HorarioEntrega)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FormaPagamento)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataEntrega)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataPedido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorarioEntrega)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FormaPagamento)
-            </td>
-
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-            <td>
-                    <partial name="_IndexCliente" model="item.Cliente" />
-
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
+<div class="container-fluid box">
+    <h1 class="text-uppercase text-center fs-1 tb-h">Tabela Pedidos</h1>
+    <hr />
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Cliente
+                </th>
+                <th>
+                    Data do Pedido
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FormaPagamento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalDoPedido)
+                </th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-limite-nome">
+                        @Html.DisplayFor(modelItem => item.Cliente.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataPedido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FormaPagamento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalDoPedido)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" title="Editar" class="btn btn-icon bi bi-pencil"></a> |
+                        <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes" class="btn btn-icon bi bi-card-text"></a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" title="Excluir" class="btn btn-icon bi bi-trash"></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="text-center">
+        <a asp-controller="Home" asp-action="AreaAdmin" class="a-link">Retornar para Área do Administrador</a>
+    </div>
+</div>
 
 

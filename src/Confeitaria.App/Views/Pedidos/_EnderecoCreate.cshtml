@@ -1,5 +1,6 @@
 ﻿@model Confeitaria.App.ViewModels.PedidoViewModel
 
+<div class="row">
 <div class="form-group col-md-4 mt-3">
     <label asp-for="Endereco.Cep" class="control-label"></label>
     <input asp-for="Endereco.Cep" class="form-control fs-4" />
@@ -34,4 +35,5 @@
     <label asp-for="Endereco.Complemento" class="control-label"></label>
     <input asp-for="Endereco.Complemento" class="form-control fs-4" />
     <span asp-validation-for="Endereco.Complemento" class="text-danger"></span>
+</div>
 </div>

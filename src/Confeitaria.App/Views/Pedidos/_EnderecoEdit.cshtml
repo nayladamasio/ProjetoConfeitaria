@@ -4,8 +4,24 @@
     ViewData["Title"] = "Atualizar Endereço";
 }
 
+<style>
+    .btn-modal {
+        color: #e48f9b;
+        border: 1px solid;
+        font-size: 28px;
+        margin-bottom: 12px
+    }
+
+    .h-modal{
+        color: #e48f9b;
+        font-size: 35px;
+        font-weight: bold;
+    }
+</style>
+
+
 <div class="modal-header">
-    <h4 class="modal-title">@ViewData["Title"]</h4>
+    <h4 class="modal-title h-modal ">Atualizar Endereço</h4>
 </div>
 
 <form asp-action="AtualizarEndereco" id="frm-atualizar-endereco">
@@ -17,9 +33,9 @@
     </div>
 </form>
 
-<div class="modal-footer ro">
-    <button type="button" class="btn btn-success" id="btn-atualizar">Atualizar</button>
-    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+<div class="modal-footer">
+    <button type="button" class="btn btn-modal" id="btn-atualizar">Atualizar</button>
+    <button type="button" class="btn btn-modal" data-bs-dismiss="modal">Cancelar</button>
 </div>
 
 <script>

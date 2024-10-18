@@ -14,6 +14,7 @@ namespace Confeitaria.App.ViewModels
         public DateTime DataEntrega { get; set; }
 
         [ScaffoldColumn(false)]
+        [DisplayName("Data do Pedido")]
         public DateTime DataPedido { get; set; }
 
         [DisplayName("Horario da Entrega")]

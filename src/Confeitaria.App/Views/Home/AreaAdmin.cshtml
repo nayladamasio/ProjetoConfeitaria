@@ -8,28 +8,28 @@
 <div class="box shadow-lg">
     <div class="row">
         <h1 class="text-uppercase text-center fw-bold mt-5">Área Administrador</h1>
-        <div class="col-md-6 mb-3 mt-5">
+        <div class="col-md-4 mb-3 mt-5">
             <div class="card text-center">
                 <i class="bi bi-table fs-1 mt-3"></i>
-                <a asp-controller="Produtos" asp-action="TbProdutos" class="card-title"> Produtos</a>
+                <a asp-controller="Produtos" asp-action="TbProdutos" title="Tabela Produtos" class="card-title"> Produtos</a>
             </div>
         </div>
-        <div class="col-md-6 mb-3 mt-5">
+        <div class="col-md-4 mb-3 mt-5">
             <div class="card text-center">
                 <i class="bi bi-table fs-1 mt-3"></i>
-                <a asp-controller="Pedidos" asp-action="Index" class="card-title"> Pedidos</a>
+                <a asp-controller="Pedidos" asp-action="Index" title="Tabela Pedidos" class="card-title"> Pedidos</a>
             </div>
         </div>
-        <div class="col-md-6 mb-5 mt-5">
+      @*   <div class="col-md-6 mb-5 mt-5">
             <div class="card text-center">
                 <i class="bi bi-table fs-1 mt-3"></i>
                 <a asp-controller="Clientes" asp-action="Index" class="card-title"> Clientes</a>
             </div>
-        </div>
-        <div class="col-md-6 mb-5 mt-5">
+        </div> *@
+        <div class="col-md-4 mb-5 mt-5">
             <div class="card text-center">
                 <i class="bi bi-table fs-1 mt-3"></i>
-                <a asp-controller="FaleConosco" asp-action="Index" class="card-title"> Mensagens</a>
+                <a asp-controller="FaleConosco" asp-action="Index" title="Tabela Fale Conosco" class="card-title"> Mensagens</a>
             </div>
         </div>
     </div>

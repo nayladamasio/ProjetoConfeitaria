@@ -3,28 +3,31 @@
     height: auto;
     width: 85%;
     margin: auto;
-    margin-top: 33px;
+    margin-top: 30px;
     margin-bottom: 70px;
     padding: 20px;
+    font-size: 35px;
+    text-align: left;
 }
 
 .tb-h {
     color: #e48f9b;
     font-weight: bold;
     margin-bottom: 25px;
-    margin-top: 2px;
+    margin-top: 15px;
+    font-size: 38px;
 }
 
 .box2{
-    margin: 0 auto;
+    margin: 0 3%;
 }
 
-.a-link {
-    text-decoration: none;
-    color: #e48f9b;
-    font-size: 34px;
+.td-cliente{
+    word-wrap: break-word;
+    white-space: normal;
 }
 
-dd, dt{
-    font-size: 35px;
+h1{
+    font-size: 32px;    
+
 }

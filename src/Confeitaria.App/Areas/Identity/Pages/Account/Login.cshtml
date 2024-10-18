@@ -38,9 +38,9 @@
                     <p>
                         <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Criar nova conta</a>
                     </p>
-                    <p>
+                    @* <p>
                         <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Reenviar confirmação por e-mail</a>
-                    </p>
+                    </p> *@
                 </div>
             </form>
         </section>
@@ -51,22 +51,31 @@
                 {
                     <h3 class="fs-3">ou acesse via</h3>
                     <div class="iconeredes">
+                        <a href="www.facebook.com.br" class="a-link" target="_blank">
                         <span class="fa-stack m-md-2">
                             <i class="fa fa-circle-thin fa-stack-2x"></i>
                             <i class="fa fa-facebook fa-stack-1x"></i>
                         </span>
+                        </a>
+                        <a href="https://accounts.google.com/" class="a-link" target="_blank">
                         <span class="fa-stack m-md-2">
                             <i class="fa fa-circle-thin fa-stack-2x"></i>
                             <i class="fa fa-google fa-stack-1x"></i>
                         </span>
-                        <span class="fa-stack m-md-2">
+                        </a>
+                        <a href="www.twitter.com.br" class="a-link" target="_blank">
+                            <span class="fa-stack m-md-2">
                             <i class="fa fa-circle-thin fa-stack-2x"></i>
                             <i class="fa fa-twitter fa-stack-1x"></i>
                         </span>
+                        </a>
+                        <a href="www.instagram.com.br" class="a-link" target="_blank">
                         <span class="fa-stack m-md-2">
                             <i class="fa fa-circle-thin fa-stack-2x"></i>
                             <i class="fa fa-instagram fa-stack-1x"></i>
                         </span>
+                        </a>
+
                     </div>
                 }
                 else
